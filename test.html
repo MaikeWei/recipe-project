@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>test</title>
+<script
+</head>
+
+<body>
+<script type="text/javascript">
+var rezept = function(zutat,menge,einheit){
+	this.zutat = zutat;
+	this.menge = menge;
+	this.einheit = einheit;
+};
+var rezept1 = new Array();
+rezept1[0] = new rezept("Tomate",500, "g"); 
+rezept1[1] = new rezept("Gurke",300, "g"); 
+rezept1[2] = new rezept("Feta",200, "g");
+rezept1[3] = new rezept("Balsamico Essig", 2,"EL");
+//document.write("<table>");
+for(var i = 0; i<= rezept1.length; i++){
+	document.write(rezept1[i].zutat + " " + rezept1[i].menge + rezept1[i].einheit + "<br/>");
+}
+var zeit = function(minute){
+	this.minute = minute;
+};
+var zeit1 = new Array();
+zeit1[0] = new zeit (90);
+for (var j = 0; j <= zeit1.length; j++){
+	document.write(zeit1[j].minute + " " + "Minuten")
+}
+//document.write("</table>");
+</script>
+</body>
+</html>
