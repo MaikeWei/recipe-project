@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+<meta charset="utf-8">
+
+<title>test</title>
+
+
+</head>
+<body>
+
+<div class="pfeile">
+<img src="icons/pfeil_links.png"/>
+
+<h1>Griechischer Salat</h1>
+
+<a href="jamie.html"><img src="icons/pfeil_rechts.png"/></a>
+</div>
+
+<script type="text/javascript">
+
+//var aktRezept = [
+//var liste, var text, var zeit, 
+//];
+
+
+
+var liste = function(zutat,menge,einheit){
+	this.zutat = zutat;
+	this.menge = menge;
+	this.einheit = einheit;
+};
+
+
+var liste1 = new Array();
+liste1[0] = new liste("Salat",1, " "); 
+liste1[1] = new liste("Tomate",300, "g"); 
+liste1[2] = new liste("Gurke",1, " "); 
+liste1[3] = new liste("Feta",200, "g");
+liste1[4] = new liste("Oliven", 120,"g");
+liste1[5] = new liste("Olivenöl", 6,"EL");
+liste1[6] = new liste("Balsamico Essig", 2,"EL");
+liste1[7] = new liste("Salz", " "," ");
+liste1[8] = new liste("Pfeffer", " "," ");
+
+
+
+  document.writeln("<table>");
+             document.writeln("<tr>");
+           
+            document.writeln("<td class='spalte1'><b>Zutat</b></td>");
+            document.writeln("<td class='spalte2'><b>Menge</b></td>");
+            document.writeln("</tr>");
+
+         for(i = 0;i< liste1.length;i++){	
+            document.writeln("<tr>");
+            document.writeln("<td class='spalte1'>"+ liste1[i].zutat+ "</td>");
+            document.writeln ("<td class='spalte2'>" + liste1[i].menge + liste1[i].einheit+"</td>");
+            document.writeln ("<td class='spalte3'><button type = 'button' class = 'plus'><img src='icons/plus.png'/></button></td>")
+            document.writeln("</tr>");
+            
+
+         }
+   document.writeln("</table><br/>");    
+
+
+
+
+
+
+var text = [
+"Schneide Schneide Schnibbel klein, vermenge, in die Pfanne haun und schmecken lassen!<br/>"
+];
+document.writeln (text);
+
+
+var zeit = function(minute){
+	this.minute = minute;
+};
+var zeit1 = new Array();
+zeit1[0] = new zeit (15);
+for (var j = 0; j <= zeit1.length; j++){
+	document.write("<br/>" + zeit1[j].minute + " " + "Minuten")
+}
+
+
+var shoppinglist = [
+];
+
+</script>
+</body>
+</html>

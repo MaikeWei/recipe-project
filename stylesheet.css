@@ -1,0 +1,33 @@
+table {
+	border: 1px solid black;
+	width: 300px;
+}
+
+.spalte1 {
+	width: 200px;
+}
+
+.spalte2 {
+	width: 50px;
+}
+
+.spalte3 {
+	width: 50px;
+}
+
+.plus img {
+	width: 40px;
+}
+
+.pfeile {
+	display: inline-flex;
+}
+
+.pfeile img {
+	width: 60px;
+	height: 60px;
+}
+
+h1 {
+	text-align: center; 
+}
