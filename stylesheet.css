@@ -15,15 +15,12 @@ table {
 	width: 50px;
 }
 
-.plus img {
+.plus {
 	width: 40px;
 }
 
 .pfeile {
 	display: inline-flex;
-}
-
-.pfeile img {
 	width: 60px;
 	height: 60px;
 }

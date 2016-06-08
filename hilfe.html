@@ -9,18 +9,20 @@
 <title>Rezeptliste</title>
 
 <script type="text/javascript">
-
 var cur = 0;
 
 shoppinglist = new Array ();
 
+var rezeptListe = loadData();
+
+
 function loadData(){
 
 	var rezeptBuch = new Array ();
-
+	
 	var zutatenListe = new Array();
-
-	zutatenListe.push ({name: "Salat", menge: 1, einheit: "Stück"});
+	
+	zutatenListe.push ({name: "Salat", menge: 1, einheit: "Kopf"});
 	zutatenListe.push ({name: "Tomaten", menge: 300, einheit: "g"});
 	zutatenListe.push ({name: "Gurke", menge: 150, einheit: "g"});
 	zutatenListe.push ({name: "Feta", menge: 200, einheit: "g"});
@@ -29,9 +31,8 @@ function loadData(){
 	zutatenListe.push ({name: "Balsamico Essig", menge: 2, einheit: "EL"});
 	zutatenListe.push ({name: "Salz", menge: 1, einheit: "Prise"});
 	zutatenListe.push ({name: "Pfeffer", menge: 1, einheit: "Prise"});
-
 	rezeptBuch.push( 
-		{titel: "Salat", 
+		{titel: "Griechischer Salat", 
 		 zutaten : zutatenListe, 
 		 text:"Ein Salat ist einfach", 
 		 zeit : 15
@@ -39,7 +40,7 @@ function loadData(){
 	);
 	
 	zutatenListe = new Array();
-
+	
 	zutatenListe.push ({name: "Frühlingszwiebeln", menge: 4, einheit: "Stück"});
 	zutatenListe.push ({name: "Chilischote", menge: 1, einheit: "Stück"});
 	zutatenListe.push ({name: "Koriandergrün", menge: 15, einheit: "g"});
@@ -48,7 +49,6 @@ function loadData(){
 	zutatenListe.push ({name: "Kichererbsen", menge: 400, einheit: "g"});
 	zutatenListe.push ({name: "Feta", menge: 30, einheit: "g"});
 	zutatenListe.push ({name: "Limetten", menge: 1, einheit: "Stück"});
-
 	rezeptBuch.push( 
 		{titel: "Tomatensuppe", 
 		 zutaten : zutatenListe, 
@@ -57,8 +57,9 @@ function loadData(){
 		}
 	);
 
-	zutatenListe = new Array();
 
+	zutatenListe = new Array();
+	
 	zutatenListe.push ({name: "Paprika", menge: 200, einheit: "g"});
 	zutatenListe.push ({name: "Zucchini", menge: 250, einheit: "g"});
 	zutatenListe.push ({name: "Chilischote", menge: 1, einheit: "Stück"});
@@ -69,7 +70,6 @@ function loadData(){
 	zutatenListe.push ({name: "Rapsöl", menge: 1, einheit: "EL"});
 	zutatenListe.push ({name: "Knoblauchzehe", menge: 1, einheit: "Stück"});
 	zutatenListe.push ({name: "Pfeffer", menge: 1, einheit: "Prise"});
-
 	rezeptBuch.push( 
 		{titel: "Paprika-Zucchini-Nudeln", 
 		 zutaten : zutatenListe, 
@@ -77,38 +77,69 @@ function loadData(){
 		 zeit : 45
 		}
 	);	
-
 	return rezeptBuch;
-
 }
-	
 
+	
 function zeigeRezept(){
+	var rezeptListe = loadData();
 
-	var liste = loadData();  //kann später durch Daten laden aus dem Internet
+	var myString ="<h1>Rezepte</h1><h2>"+rezeptListe[cur].titel+"</h2>";
 
-	var myString = "<h2>"+liste[cur].titel+"</h2>";
-	
+	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
+
+	myString += "<a onclick='zurueck()' href='#'><img class='pfeile' src='icons/pfeil_links.png/'></a>"+" ";
+
+	myString += "<a onclick='vor()' href='#'><img class='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+
+
 	myString += "<table>";
 	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
-	for (var i = 0; i < liste[cur].zutaten.length; i++){	
-	myString += "<tr><td>"+liste[cur].zutaten[i].name+"</td><td>"+liste[cur].zutaten[i].menge+" "+liste[cur].zutaten[i].einheit+"</td><td><a id='button' onClick='addToListe(\""+liste[cur].zutaten[i].name+"\")' href='#' >hinzufügen</a></td></tr>";
+	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
+	myString += "<tr><td>"+rezeptListe[cur].zutaten[i].name+"</td><td>"+rezeptListe[cur].zutaten[i].menge+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td><a onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
 	}
 	myString += "</table><br/>";
-
 	myString += "<table>";
-	myString += "<tr><td>Zubereitung</td><td>"+liste[cur].text+"</td></tr>";
+	myString += "<tr><td>Zubereitung</td><td>"+rezeptListe[cur].text+"</td></tr>";
 	myString += "</table><br/>";
 	
 	myString += "<table>";
-	myString += "<tr><td>Dauer</td><td>"+liste[cur].zeit+" Minuten</td></tr>";
+	myString += "<tr><td>Dauer</td><td>"+rezeptListe[cur].zeit+" Minuten</td></tr>";
 	
     myString += "</table><br/>";
-//in dritte Zeile noch ein plus zum hinzufügen. 
 
 	document.getElementById('display').innerHTML = myString;
 }	
 
+function zeigePortion(){
+	var rezeptListe = loadData();
+
+	var myString ="<h1>Rezepte</h1><h2>"+rezeptListe[cur].titel+"</h2>";
+
+	myString += "<button onClick='zeigeRezept()' >4 Portionen</button>";
+
+	myString += "<a onclick='zurueck()' href='#'>Zurück</a>"+" ";
+
+	myString += "<a onclick='vor()' href='#'>Vor</a><br/><br/>";
+
+
+	myString += "<table>";
+	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
+	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
+	myString += "<tr><td>"+rezeptListe[cur].zutaten[i].name+"</td><td>"+rezeptListe[cur].zutaten[i].menge/2+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td><button onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/2+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' >hinzufügen</button></td></tr>";
+	}
+	myString += "</table><br/>";
+	myString += "<table>";
+	myString += "<tr><td>Zubereitung</td><td>"+rezeptListe[cur].text+"</td></tr>";
+	myString += "</table><br/>";
+	
+	myString += "<table>";
+	myString += "<tr><td>Dauer</td><td>"+rezeptListe[cur].zeit+" Minuten</td></tr>";
+	
+    myString += "</table><br/>";
+
+	document.getElementById('display').innerHTML = myString;
+}	
 function vor(){
 	if (cur < 3){cur++;} //Länge des Rezeptes
 	console.log("Aktuelles Rezept:"+cur);
@@ -121,51 +152,50 @@ function zurueck(){
 	zeigeRezept();
 }
 
-
-function zeigeshoppinglist(){
+function zeigeShoppinglist(){
 	
 	var myString = "<h2>Einkaufsliste</h2>";
+
+	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >löschen</button>";
 	
 	myString += "<ul>";
 	for (var i = 0; i < shoppinglist.length; i++){	
-		myString += "<li>"+shoppinglist[i]+"</li>";
+		myString += "<li id='dinge'>"+shoppinglist[i]+"<button onclick='loeschen(\""+shoppinglist[i]+"\")' >löschen</button></li>";
 	}
-
 	myString += "</ul>";
-
-	document.getElementById('display2').innerHTML = myString;
+	document.getElementById('display').innerHTML = myString;
 }
-
 
 function addToListe(eintrag) {
 
-	console.log("Hinzugefügt " + eintrag);
+	console.log("klappt" + eintrag);
 	shoppinglist.push(eintrag);
-
+}
+	
+function allesLoeschen (waren) {
+	shoppinglist.splice(waren);
 	}
-	
-	
+//var waren = new Array (shoppinglist[i])
+
+	//for (var i = 0; i < shoppinglist.length; i++){
+
+
+function loeschen(){
+//	entfernen(dinge)
+
+}
+
 
 </script>
 
 </head>
-<body onload="zeigeRezept()">
+<body onload="zeigeRezept()" >
 
-<h1>Rezepte</h1>
+<a onclick="zeigeShoppinglist()" href="#">Einkaufsliste</a>
 
-<a onclick="zeigeshoppinglist()" href="#">Einkaufsliste</a>
-
-<br/>
-<br/>
-
-<a onclick="zurueck()" href="#">Zurück</a>
-
-<a onclick="vor()" href="#">Vor</a>
+<a onclick="zeigeRezept()" href="#">Rezepte</a>
 
 <div id="display"></div>
-
-<div id="display2"></div>
-
 
 </body>
 </html>
