@@ -41,8 +41,33 @@ function zeigeMenue () {
 function loadData(){
 
 	var rezeptBuch = new Array ();
-	
+
+
 	var zutatenListe = new Array();
+	
+	zutatenListe.push ({name: "Zwiebel(n)", menge: 1, einheit: " "});
+	zutatenListe.push ({name: "Knoblauch", menge: 2, einheit: "Zehe/n"});
+	zutatenListe.push ({name: "Olivenöl", menge: 2, einheit: "EL"});
+	zutatenListe.push ({name: "Hackfleisch", menge: 400, einheit: "g"});
+	zutatenListe.push ({name: "Tomaten Dose", menge: 500, einheit: "g"});
+	zutatenListe.push ({name: "Rotwein", menge: 100, einheit: "ml"});
+	zutatenListe.push ({name: "Basilikum", menge: 0.5, einheit: "Bund"});
+	zutatenListe.push ({name: "Butter", menge: 2, einheit: "EL"});
+	zutatenListe.push ({name: "Mehl", menge: 2, einheit: "EL"});
+	zutatenListe.push ({name: "Milch", menge: 300, einheit: "ml"});
+	zutatenListe.push ({name: "Lasagneblätter", menge: 16, einheit: "Stück"});
+	zutatenListe.push ({name: "Käse gerieben", menge: 150, einheit: "g"});
+	rezeptBuch.push( 
+		{titel: "Lasagne", 
+		 zutaten : zutatenListe, 
+		 text_schwierigkeit:"<b>Schwierigkeit: einfach</b>",
+		 text_txt: "Den Backofen auf 200°C Ober-und Unterhitze vorheizen. Die Zwiebel und den Knoblauch abzhiehen, fein hacken und in einem Topf mit 2 EL heißem Öl glasig dünsten. Das Hackfleisch zugeben, krümelig braten und die Tomaten zugeben. Den Rotwein angießen, salzen, pfeffern und bei mittlerer Hitze <button type='button' onclick=zähler() id='counter'> 20 Minuten</button> unter gelegentlichem Rühren köcheln lassen. Das Basilikum abbrausen, trocken schütteln, die Blättchen grob hacken und unter die Hackfleischsauce rühren. Für die Béchamel die Butter in einem Topf zerlassen, das Mehl darüber stauben und unter Rühren anschwitzen. Die Milch nach und nach zugießen und mit einem Schneebesen kräftig verrühren, damit sich keine Klumpen bilden. <button type='button' onclick=zähler1() id='counter1'> 2 Minuten</button>dicklich einköcheln lassen, mit Salz, Pfeffer und Muskat würzen und vom Herd ziehen. 1-2 Schöpfkellen von der Hackfleischmasse in eine gefettete Auflaufform verteilen, mit Lasagneplatten bedecken und diese mit etwas Béchamelsauce bestreichen. Diesen Vorgang so oft wiederholen, bis alle Zutaten aufgebraucht sind und die Lasagne aus mehrerer Schichten besteht. Dabei mit der Hackfleischmasse abschließen und diese mit dem Käse bestreuen. Im vorgeheizten Ofen <button type='button' onclick=zähler2() id='counter2'> 40 Minuten</button> goldbraun backen. Herausnehmen und in Stücke portioniert auf Teller angerichtet servieren. Nach Belieben frischen, grünen Salat dazu reichen.", 
+		 zeit : 90
+		}
+	);
+
+	
+	zutatenListe = new Array();
 	
 	zutatenListe.push ({name: "Salat", menge: 1, einheit: "Kopf"});
 	zutatenListe.push ({name: "Tomaten", menge: 300, einheit: "g"});
@@ -61,6 +86,8 @@ function loadData(){
 		}
 	);
 	
+
+
 	zutatenListe = new Array();
 	
 	zutatenListe.push ({name: "Frühlingszwiebel(n)", menge: 4, einheit: "Stück"});
@@ -75,7 +102,7 @@ function loadData(){
 		{titel: "Mexikanische Tomatensuppe", 
 		 zutaten : zutatenListe, 
 		 text_schwierigkeit:"<b>Schwierigkeit: total einfach</b>",
-		 text_txt: "Die Frühlingszwiebeln putzen und mit der Chilischote und den Korianderstängeln fein schneiden. Die Tomaten von den Stielansätzen befreien und vierteln. Von den weißen Teilen der Frühlingszwiebeln die Hälfte beiseitestellen, ebenso die Hälfte der Chili sowie der Korianderblätter. Den Rest mit 2 TL Öl in einen großen Topf geben. Den Knoblauch durch die Presse drücken und alles bei mittlerer Hitze <button type='button' onclick=zähler() id='counter'> 2 Minuten</button> braten, dann die Tomaten hinzufügen. Die Kichererbsen mitsamt der Flüssigkeit und 600ml kochendem Wasser dazugießen, den Deckel auflegen. Die Suppe <button type='button' onclick=zähler1() id='counter1'> 20 Minuten</button> köcheln lassen, dann mit Salz und Pfeffer abschmecken, die Tomaten zerdrücken. Zum Servieren den Feta zerbröseln und darüberkrümeln, die Reste von Frühlingszwiebeln, Chili und Korianderblättern daraufstreuen und Limettenspalten dazu servieren.", 
+		 text_txt: "Die Frühlingszwiebeln putzen und mit der Chilischote und den Korianderstängeln fein schneiden. Die Tomaten von den Stielansätzen befreien und vierteln. Von den weißen Teilen der Frühlingszwiebeln die Hälfte beiseitestellen, ebenso die Hälfte der Chili sowie der Korianderblätter. Den Rest mit 2 TL Öl in einen großen Topf geben. Den Knoblauch durch die Presse drücken und alles bei mittlerer Hitze <button type='button' onclick=zähler3() id='counter3'> 2 Minuten</button> braten, dann die Tomaten hinzufügen. Die Kichererbsen mitsamt der Flüssigkeit und 600ml kochendem Wasser dazugießen, den Deckel auflegen. Die Suppe <button type='button' onclick=zähler4() id='counter4'> 20 Minuten</button> köcheln lassen, dann mit Salz und Pfeffer abschmecken, die Tomaten zerdrücken. Zum Servieren den Feta zerbröseln und darüberkrümeln, die Reste von Frühlingszwiebeln, Chili und Korianderblättern daraufstreuen und Limettenspalten dazu servieren.", 
 		 zeit : 30
 		}
 	);
@@ -96,7 +123,7 @@ function loadData(){
 		{titel: "Paprika-Zucchini-Nudeln", 
 		 zutaten : zutatenListe, 
 		 text_schwierigkeit:"<b>Schwierigkeit: leicht</b>",
-		 text_txt: "Paprikaschoten halbieren, entkernen und waschen. Ein Backblech mit Alufolie auslegen. Paprikahälften mit der Hautseite nach oben darauf verteilen. Unter dem vorgeheizten Backofengrill <button type='button' onclick=zähler2() id='counter2'>7 Minuten</button> rösten, bis die Haut leicht schwarz wird. Inzwischen Zucchini putzen, waschen, quer halbieren und längs in schmale Streifen schneiden. Kapern abtropfen lassen. Paprikaschoten aus dem Backofen nehmen und etwa <button type='button' onclick=zähler3() id='counter3'>5 Minuten</button>  mit einem feuchten Küchentuch bedecken. Anschließend häuten und würfeln. Chilischote längs halbieren, entkernen, waschen und fein hacken. Brot würfeln, mit den Händen fein zerkrümeln und in eine Schüssel geben. In einer kleinen beschichteten Pfanne 1 EL Olivenöl erhitzen. Brotkrümel und Chili darin unter häufigem Rühren goldbraun rösten. Nudeln nach Packungsanleitung in reichlich kochendem Salzwasser bissfest garen. Inzwischen restliches Öl in einer großen beschichteten Pfanne erhitzen. Zucchini darin unter Rühren bei mittlerer Hitze weichdünsten. Knoblauch schälen und durch eine Knoblauchpresse direkt zu den Zucchini geben. Paprikawürfel und Kapern unterrühren. Salzen, pfeffern und warm halten. Nudeln abgießen und abtropfen lassen, dabei 75 ml Nudelwasser auffangen. Nudeln und Gemüse mischen, Nudelwasser darunterrühren. Die Paprika-Zucchini-Nudeln mit Chilibröseln bestreuen und servieren.", 
+		 text_txt: "Paprikaschoten halbieren, entkernen und waschen. Ein Backblech mit Alufolie auslegen. Paprikahälften mit der Hautseite nach oben darauf verteilen. Unter dem vorgeheizten Backofengrill <button type='button' onclick=zähler5() id='counter5'>7 Minuten</button> rösten, bis die Haut leicht schwarz wird. Inzwischen Zucchini putzen, waschen, quer halbieren und längs in schmale Streifen schneiden. Kapern abtropfen lassen. Paprikaschoten aus dem Backofen nehmen und etwa <button type='button' onclick=zähler6() id='counter6'>5 Minuten</button>  mit einem feuchten Küchentuch bedecken. Anschließend häuten und würfeln. Chilischote längs halbieren, entkernen, waschen und fein hacken. Brot würfeln, mit den Händen fein zerkrümeln und in eine Schüssel geben. In einer kleinen beschichteten Pfanne 1 EL Olivenöl erhitzen. Brotkrümel und Chili darin unter häufigem Rühren goldbraun rösten. Nudeln nach Packungsanleitung in reichlich kochendem Salzwasser bissfest garen. Inzwischen restliches Öl in einer großen beschichteten Pfanne erhitzen. Zucchini darin unter Rühren bei mittlerer Hitze weichdünsten. Knoblauch schälen und durch eine Knoblauchpresse direkt zu den Zucchini geben. Paprikawürfel und Kapern unterrühren. Salzen, pfeffern und warm halten. Nudeln abgießen und abtropfen lassen, dabei 75 ml Nudelwasser auffangen. Nudeln und Gemüse mischen, Nudelwasser darunterrühren. Die Paprika-Zucchini-Nudeln mit Chilibröseln bestreuen und servieren.", 
 		 zeit : 45
 		}
 	);	
@@ -230,7 +257,7 @@ function zeigePortionSingle(){
 
 
 function vor(){
-	if (cur < 3){cur++;} //Länge des Rezeptes
+	if (cur < 4){cur++;} //Länge des Rezeptes
 	console.log("Aktuelles Rezept:"+cur);
 	zeigeRezept();
 }
@@ -348,19 +375,31 @@ function countdown(seconds, target) {
 };
 
 function zähler (){
-	new countdown(120, 'counter');
+	new countdown(1200, 'counter');
 }
 
 function zähler1 (){
-	new countdown(1200, 'counter1');
+	new countdown(120, 'counter1');
 }
 
 function zähler2 (){
-	new countdown(420, 'counter2');
+	new countdown(2400, 'counter2');
 }
 
 function zähler3 (){
-	new countdown(350, 'counter3');
+	new countdown(120, 'counter3');
+}
+
+function zähler4 (){
+	new countdown(1200, 'counter4');
+}
+
+function zähler5(){
+	new countdown(420, 'counter5');
+}
+
+function zähler6 (){
+	new countdown(350, 'counter6');
 }
 
 
