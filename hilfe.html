@@ -18,31 +18,32 @@ shoppinglist = new Array ();
 var rezeptListe = loadData();
 
 
-
+//Startseite, wird beim Öffnen der App aufgerufen
 function zeigeMenue () {
 	var myString = "<div id= 'top'></div>"
 
 	myString += "<h1>Studentenfutter</h1>";
 
-	myString += "<p>Hallo, dir fehlen die Ideen was du kochen kannst? Dann bist du hier richtig! Mit diesen einfachen Rezepten verzichtest du gerne auf den langweiligen Mensafraß.</p>";
+	myString += "<p>Hallo, dir fehlen die Ideen was du kochen kannst? Dann bist du hier richtig! Mit diesen einfachen Rezepten verzichtest du gerne auf den langweiligen Mensafraß. Außerdem kannst du hier einfach und bequem deine ausgewählten Zutaten, die du nicht daheim hast, auf die Einkaufsliste setzen.</p>";
 
+	//Navigation zu den einzelnen Seiten, Menü drinnnen lassen?
 	myString += "<button class='startseite' type='button' onclick='zeigeMenue()' href='#'> Menü </button><br/><br/>";
 
 	myString += "<button class='startseite' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button><br/><br/>";
 
 	myString += "<button type='button' class='startseite' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
 
-
+	//zeigt zeigeMenue() beim Aufrufen auf dem Display an
 	document.getElementById('display').innerHTML = myString;
 }
 
 
-
+//Rezeptlisten
 function loadData(){
 
 	var rezeptBuch = new Array ();
 
-
+	//1. Rezept, Lasagne, cur = 0, wird als erstes angezeigt
 	var zutatenListe = new Array();
 	
 	zutatenListe.push ({name: "Zwiebel(n)", menge: 1, einheit: " "});
@@ -66,7 +67,7 @@ function loadData(){
 		}
 	);
 
-	
+	//2. Rezept, cur = 1, beim Pfeil nach rechts angezeigt
 	zutatenListe = new Array();
 	
 	zutatenListe.push ({name: "Salat", menge: 1, einheit: "Kopf"});
@@ -87,7 +88,7 @@ function loadData(){
 	);
 	
 
-
+	//3. Rezept, cur = 2
 	zutatenListe = new Array();
 	
 	zutatenListe.push ({name: "Frühlingszwiebel(n)", menge: 4, einheit: "Stück"});
@@ -107,7 +108,7 @@ function loadData(){
 		}
 	);
 
-
+	//4. Rezept, cur = 3
 	zutatenListe = new Array();
 	
 	zutatenListe.push ({name: "Paprika", menge: 200, einheit: "g"});
@@ -130,10 +131,11 @@ function loadData(){
 	return rezeptBuch;
 }
 
-	
-function zeigeRezept(){
+
+function zeigeRezept(){ //für 4 Personen
 	var rezeptListe = loadData();
 
+	//Navigation durch Buttons, Rezeptseite und Einkaufsliste gleich
 	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
 
 	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
@@ -142,13 +144,16 @@ function zeigeRezept(){
 
 	myString += "<h1>Rezepte</h1>"
 
+	//Name des Rezeptes mit Navigation zu vorherigem Rezept und folgendem
 	myString += "<a onclick='zurueck()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='nav' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
 
-
+	//Verlinkung durch Button zu 1 Portion
 	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
 
+	//Verlinkung durch Button zu 2 Portionen
 	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
 
+	//Zutatenliste
 	myString += "<table>";
 	myString += "<tr><td id='spalte1'><b>Zutaten</b></td><td id='spalte2'><b>Menge</b></td><td id='spalte3'></td></tr>";	
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
@@ -156,12 +161,13 @@ function zeigeRezept(){
 	}
 	myString += "</table><br/>";
 
+	//Zeit für Rezept
 	myString += "<table>";
 	myString += "<tr><td id='spalte1'><b>Dauer</b></td><td id='spalte2'>"+rezeptListe[cur].zeit+" Minuten</td></tr>";
 	
     myString += "</table><br/>";
 
-
+    //Zubereitungstext mit Schwierigkeit
 	myString += "<table>";
 	myString += "<tr><td id='spalte1'><b>Zubereitung <br/>" +' '+rezeptListe[cur].text_schwierigkeit+"</b></td></tr><tr><td id='spalte1'>"+rezeptListe[cur].text_txt+"</td></tr>";
 	myString += "</table><br/>";
@@ -171,7 +177,8 @@ function zeigeRezept(){
 	document.getElementById('display').innerHTML = myString;
 }	
 
-function zeigePortion(){
+
+function zeigePortion(){ //2Portionen
 	var rezeptListe = loadData();
 
 	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
@@ -193,6 +200,7 @@ function zeigePortion(){
 	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
 
+	//Menge der Zutaten wird durch 2 geteilt
 	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/2+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/2+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
 	}
 
@@ -213,7 +221,7 @@ function zeigePortion(){
 }	
 
 
-function zeigePortionSingle(){
+function zeigePortionSingle(){ //Rezept für 1 Portion
 	var rezeptListe = loadData();
 
 	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
@@ -237,7 +245,7 @@ function zeigePortionSingle(){
 	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
 	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/4+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/4+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
-	}
+	} //Menge der Zutaten wird von 4 Portionen ausgehend durch 4 geteilt
 
 	myString += "</table><br/>";
 
@@ -255,19 +263,21 @@ function zeigePortionSingle(){
 	document.getElementById('display').innerHTML = myString;
 }	
 
-
+//Mit Button verknüpft, leitet zum folgenden Rezept weiter
 function vor(){
 	if (cur < 4){cur++;} //Länge des Rezeptes
 	console.log("Aktuelles Rezept:"+cur);
 	zeigeRezept();
 }
 
+//mit Button verknüpft, leitet zum vorherigen Rezept weiter
 function zurueck(){
 	if (cur > 0){cur--;}
 	console.log("Aktuelles Rezept:"+cur);
 	zeigeRezept();
 }
 
+//Einkaufsliste
 function zeigeShoppinglist(){
 	restoreContents();
 
@@ -297,9 +307,10 @@ function populateStorage (){
 
 function restoreContents (){
 	shoppinglist = JSON.parse(localStorage.getItem('shoppingInhalt'));
-	if (shoppinglist == undefined){alert("Deine Einkaufsliste ist leer!");}
+	if (shoppinglist == undefined){alert("Deine Einkaufsliste ist leer!");} //Pop-Up-Fenster popt auf, wenn nichts in der Einkaufsliste ist
 }
 
+//nimmt die Einträge von name, menge und einheit und pusht sie in die Shoppingliste
 function addToListe(eintrag) {
 	shoppinglist.push(eintrag);
 	populateStorage();
@@ -307,6 +318,7 @@ function addToListe(eintrag) {
 
 }
 
+//leer den gespeicherten Inhalt in der Shoppingliste
 function allesLoeschen (waren) {
 	shoppinglist.splice(waren);
 	localStorage.clear();
@@ -323,7 +335,7 @@ function allesLoeschen (waren) {
 
 
 
-//timer
+//Timer
 Function.prototype.Timer = function (interval, calls, onend) {
 	var count = 0;
 	var payloadFunction = this;
@@ -374,6 +386,7 @@ function countdown(seconds, target) {
 	calculateAndShow.Timer(1000, Infinity, completed, audio);
 };
 
+//einzelne Timerzahlen, die im Zubereitungstext sind
 function zähler (){
 	new countdown(1200, 'counter');
 }
@@ -407,9 +420,10 @@ function zähler6 (){
 </script>
 
 </head>
-
+<!--läd das Menü, beim laden des Browsers-->
 <body onload="zeigeMenue()" >
 
+<!--div enthält den Inhalt, der angezeigt wird, durch document.getElementById(display) verknüpft. Läd aktuelle Seite-->
 <div id="display">
 </div>
 
