@@ -6,7 +6,11 @@
 <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 <meta charset="utf-8">
 
+<<<<<<< Updated upstream
 <title>Rezeptliste</title>
+=======
+<title>Studentenfutter</title>
+>>>>>>> Stashed changes
 
 <script type="text/javascript">
 var cur = 0;
@@ -16,6 +20,27 @@ shoppinglist = new Array ();
 var rezeptListe = loadData();
 
 
+<<<<<<< Updated upstream
+=======
+function zeigeMenue () {
+	var myString = "<div id= 'top'></div>"
+
+	myString += "<h1>Studentenfutter</h1>";
+
+	myString += "<p>Hallo, dir fehlen die Ideen was du kochen kannst? Dann bist du hier richtig! Mit diesen einfachen Rezepten verzichtest du gerne auf den langweiligen Mensafraß.</p>";
+
+	myString += "<button class='startseite' type='button' onclick='zeigeMenue()' href='#'> Menü </button><br/><br/>";
+
+	myString += "<button class='startseite' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button><br/><br/>";
+
+	myString += "<button type='button' class='startseite' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
+
+
+	document.getElementById('display').innerHTML = myString;
+}
+
+
+>>>>>>> Stashed changes
 function loadData(){
 
 	var rezeptBuch = new Array ();
@@ -29,8 +54,11 @@ function loadData(){
 	zutatenListe.push ({name: "Oliven", menge: 120, einheit: "g"});
 	zutatenListe.push ({name: "Olivenöl", menge: 6, einheit: "EL"});
 	zutatenListe.push ({name: "Balsamico Essig", menge: 2, einheit: "EL"});
+<<<<<<< Updated upstream
 	zutatenListe.push ({name: "Salz", menge: 1, einheit: "Prise"});
 	zutatenListe.push ({name: "Pfeffer", menge: 1, einheit: "Prise"});
+=======
+>>>>>>> Stashed changes
 	rezeptBuch.push( 
 		{titel: "Griechischer Salat", 
 		 zutaten : zutatenListe, 
@@ -54,7 +82,11 @@ function loadData(){
 		{titel: "Mexikanische Tomatensuppe", 
 		 zutaten : zutatenListe, 
 		 text_schwierigkeit:"<b>Schwierigkeit: total einfach</b>",
+<<<<<<< Updated upstream
 		 text_txt: "Die Frühlingszwiebeln putzen und mit der Chilischote und den Korianderstängeln fein schneiden. Die Tomaten von den Stielansätzen befreien und vierteln. Von den weißen Teilen der Frühlingszwiebeln die Hälfte beiseitestellen, ebenso die Hälfte der Chili sowie der Korianderblätter. Den Rest mit 2 TL Öl in einen großen Topf geben. Den Knoblauch durch die Presse drücken und alles bei mittlerer Hitze 2 Minuten braten, dann die Tomaten hinzufügen. Die Kichererbsen mitsamt der Flüssigkeit und 600ml kochendem Wasser dazugießen, den Deckel auflegen. Die Suppe <button type='button' onclick='(counter1)' class='timer' id='counter1'> 20 Minuten</button> köcheln lassen, dann mit Salz und Pfeffer abschmecken, die Tomaten zerdrücken. Zum Servieren den Feta zerbröseln und darüberkrümeln, die Reste von Frühlingszwiebeln, Chili und Korianderblättern daraufstreuen und Limettenspalten dazu servieren.", 
+=======
+		 text_txt: "Die Frühlingszwiebeln putzen und mit der Chilischote und den Korianderstängeln fein schneiden. Die Tomaten von den Stielansätzen befreien und vierteln. Von den weißen Teilen der Frühlingszwiebeln die Hälfte beiseitestellen, ebenso die Hälfte der Chili sowie der Korianderblätter. Den Rest mit 2 TL Öl in einen großen Topf geben. Den Knoblauch durch die Presse drücken und alles bei mittlerer Hitze <button type='button' onclick=zähler() id='counter'> 2 Minuten</button> braten, dann die Tomaten hinzufügen. Die Kichererbsen mitsamt der Flüssigkeit und 600ml kochendem Wasser dazugießen, den Deckel auflegen. Die Suppe <button type='button' onclick=zähler1() id='counter1'> 20 Minuten</button> köcheln lassen, dann mit Salz und Pfeffer abschmecken, die Tomaten zerdrücken. Zum Servieren den Feta zerbröseln und darüberkrümeln, die Reste von Frühlingszwiebeln, Chili und Korianderblättern daraufstreuen und Limettenspalten dazu servieren.", 
+>>>>>>> Stashed changes
 		 zeit : 30
 		}
 	);
@@ -68,15 +100,24 @@ function loadData(){
 	zutatenListe.push ({name: "Vollkorn-Baguette", menge: 40, einheit: "g"});
 	zutatenListe.push ({name: "Olivenöl", menge: 2, einheit: "EL"});
 	zutatenListe.push ({name: "Bandnudeln", menge: 400, einheit: "g"});
+<<<<<<< Updated upstream
 	zutatenListe.push ({name: "Salz", menge: 1, einheit: "Prise"});
 	zutatenListe.push ({name: "Rapsöl", menge: 1, einheit: "EL"});
 	zutatenListe.push ({name: "Knoblauch", menge: 1, einheit: "Zehe/n"});
 	zutatenListe.push ({name: "Pfeffer", menge: 1, einheit: "Prise"});
+=======
+	zutatenListe.push ({name: "Rapsöl", menge: 1, einheit: "EL"});
+	zutatenListe.push ({name: "Knoblauch", menge: 1, einheit: "Zehe/n"});
+>>>>>>> Stashed changes
 	rezeptBuch.push( 
 		{titel: "Paprika-Zucchini-Nudeln", 
 		 zutaten : zutatenListe, 
 		 text_schwierigkeit:"<b>Schwierigkeit: leicht</b>",
+<<<<<<< Updated upstream
 		 text_txt: "Paprikaschoten halbieren, entkernen und waschen. Ein Backblech mit Alufolie auslegen. Paprikahälften mit der Hautseite nach oben darauf verteilen. Unter dem vorgeheizten Backofengrill 6-8 Minuten rösten, bis die Haut leicht schwarz wird. Inzwischen Zucchini putzen, waschen, quer halbieren und längs in schmale Streifen schneiden. Kapern abtropfen lassen. Paprikaschoten aus dem Backofen nehmen und etwa 5 Minuten mit einem feuchten Küchentuch bedecken. Anschließend häuten und würfeln. Chilischote längs halbieren, entkernen, waschen und fein hacken. Brot würfeln, mit den Händen fein zerkrümeln und in eine Schüssel geben. In einer kleinen beschichteten Pfanne 1 EL Olivenöl erhitzen. Brotkrümel und Chili darin unter häufigem Rühren goldbraun rösten. Nudeln nach Packungsanleitung in reichlich kochendem Salzwasser bissfest garen. Inzwischen restliches Öl in einer großen beschichteten Pfanne erhitzen. Zucchini darin unter Rühren bei mittlerer Hitze weichdünsten. Knoblauch schälen und durch eine Knoblauchpresse direkt zu den Zucchini geben. Paprikawürfel und Kapern unterrühren. Salzen, pfeffern und warm halten. Nudeln abgießen und abtropfen lassen, dabei 75 ml Nudelwasser auffangen. Nudeln und Gemüse mischen, Nudelwasser darunterrühren. Die Paprika-Zucchini-Nudeln mit Chilibröseln bestreuen und servieren.", 
+=======
+		 text_txt: "Paprikaschoten halbieren, entkernen und waschen. Ein Backblech mit Alufolie auslegen. Paprikahälften mit der Hautseite nach oben darauf verteilen. Unter dem vorgeheizten Backofengrill <button type='button' onclick=zähler2() id='counter2'>7 Minuten</button> rösten, bis die Haut leicht schwarz wird. Inzwischen Zucchini putzen, waschen, quer halbieren und längs in schmale Streifen schneiden. Kapern abtropfen lassen. Paprikaschoten aus dem Backofen nehmen und etwa <button type='button' onclick=zähler3() id='counter3'>5 Minuten</button>  mit einem feuchten Küchentuch bedecken. Anschließend häuten und würfeln. Chilischote längs halbieren, entkernen, waschen und fein hacken. Brot würfeln, mit den Händen fein zerkrümeln und in eine Schüssel geben. In einer kleinen beschichteten Pfanne 1 EL Olivenöl erhitzen. Brotkrümel und Chili darin unter häufigem Rühren goldbraun rösten. Nudeln nach Packungsanleitung in reichlich kochendem Salzwasser bissfest garen. Inzwischen restliches Öl in einer großen beschichteten Pfanne erhitzen. Zucchini darin unter Rühren bei mittlerer Hitze weichdünsten. Knoblauch schälen und durch eine Knoblauchpresse direkt zu den Zucchini geben. Paprikawürfel und Kapern unterrühren. Salzen, pfeffern und warm halten. Nudeln abgießen und abtropfen lassen, dabei 75 ml Nudelwasser auffangen. Nudeln und Gemüse mischen, Nudelwasser darunterrühren. Die Paprika-Zucchini-Nudeln mit Chilibröseln bestreuen und servieren.", 
+>>>>>>> Stashed changes
 		 zeit : 45
 		}
 	);	
@@ -87,6 +128,7 @@ function loadData(){
 function zeigeRezept(){
 	var rezeptListe = loadData();
 
+<<<<<<< Updated upstream
 	var myString ="<h1>Rezepte</h1><h2>"+rezeptListe[cur].titel+"</h2>";
 
 	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
@@ -110,6 +152,41 @@ function zeigeRezept(){
 	myString += "<tr><td><b>Dauer</b></td><td>"+rezeptListe[cur].zeit+" Minuten</td></tr>";
 	
     myString += "</table><br/>";
+=======
+	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
+
+	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
+
+	myString += "<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
+
+	myString += "<h1>Rezepte</h1>"
+
+	myString += "<a onclick='zurueck()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='nav' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+
+
+	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
+
+	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
+
+	myString += "<table>";
+	myString += "<tr><td id='spalte1'><b>Zutaten</b></td><td id='spalte2'><b>Menge</b></td><td id='spalte3'></td></tr>";	
+	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
+	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
+	}
+	myString += "</table><br/>";
+
+	myString += "<table>";
+	myString += "<tr><td id='spalte1'><b>Dauer</b></td><td id='spalte2'>"+rezeptListe[cur].zeit+" Minuten</td></tr>";
+	
+    myString += "</table><br/>";
+
+
+	myString += "<table>";
+	myString += "<tr><td id='spalte1'><b>Zubereitung <br/>" +' '+rezeptListe[cur].text_schwierigkeit+"</b></td></tr><tr><td id='spalte1'>"+rezeptListe[cur].text_txt+"</td></tr>";
+	myString += "</table><br/>";
+	
+
+>>>>>>> Stashed changes
 
 	document.getElementById('display').innerHTML = myString;
 }	
@@ -117,6 +194,7 @@ function zeigeRezept(){
 function zeigePortion(){
 	var rezeptListe = loadData();
 
+<<<<<<< Updated upstream
 	var myString ="<h1>Rezepte</h1><h2>"+rezeptListe[cur].titel+"</h2>";
 
 	myString += "<button onClick='zeigeRezept()' >4 Portionen</button>";
@@ -124,11 +202,27 @@ function zeigePortion(){
 	myString += "<a onclick='zurueck()' href='#'><img class='pfeile' src='icons/pfeil_links.png/'></a>"+" ";
 
 	myString += "<a onclick='vor()' href='#'><img class='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+=======
+	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
+
+	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
+
+	myString += "<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
+
+	myString += "<h1>Rezepte</h1>"
+
+	myString += "<a onclick='zurueck()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='nav' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+
+	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
+
+	myString += "<button onClick='zeigeRezept()' >4 Portionen</button>";
+>>>>>>> Stashed changes
 
 
 	myString += "<table>";
 	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
+<<<<<<< Updated upstream
 	myString += "<tr><td>"+rezeptListe[cur].zutaten[i].name+"</td><td>"+rezeptListe[cur].zutaten[i].menge/2+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td><a onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/2+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
 	}
 	myString += "</table><br/>";
@@ -142,6 +236,69 @@ function zeigePortion(){
 
 	document.getElementById('display').innerHTML = myString;
 }	
+=======
+	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/2+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/2+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
+	}
+	myString += "</table><br/>";
+
+	myString += "<table>";
+	myString += "<tr><td id='spalte1'><b>Dauer</b></td><td id='spalte2'>"+rezeptListe[cur].zeit+" Minuten</td></tr>";
+	
+    myString += "</table><br/>";
+
+
+	myString += "<table>";
+	myString += "<tr><td id='spalte1'><b>Zubereitung <br/>" +' '+rezeptListe[cur].text_schwierigkeit+"</b></td></tr><tr><td id='spalte1'>"+rezeptListe[cur].text_txt+"</td></tr>";
+	myString += "</table><br/>";
+	
+
+	document.getElementById('display').innerHTML = myString;
+}	
+
+
+function zeigePortionSingle(){
+	var rezeptListe = loadData();
+
+	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
+
+	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
+
+	myString += "<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
+
+	myString += "<h1>Rezepte</h1>"
+
+	myString += "<a onclick='zurueck()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='nav' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+
+//	myString += "<select size='10'> <option onClick='zeigePortionSingle()' >1 Portion</option><option value='2Portionen' onClick='zeigePortion()' >2 Portionen</option> <option value='4Portionen' onClick='zeigeRezept()' >4 Portionen</option></select>";
+
+	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
+
+	myString += "<button onClick='zeigeRezept()' >4 Portionen</button>";
+
+
+	myString += "<table>";
+	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
+	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
+	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/4+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/4+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
+	}
+
+	myString += "</table><br/>";
+
+	myString += "<table>";
+	myString += "<tr><td id='spalte1'><b>Dauer</b></td><td id='spalte2'>"+rezeptListe[cur].zeit+" Minuten</td></tr>";
+	
+    myString += "</table><br/>";
+
+
+	myString += "<table>";
+	myString += "<tr><td id='spalte1'><b>Zubereitung <br/>" +' '+rezeptListe[cur].text_schwierigkeit+"</b></td></tr><tr><td id='spalte1'>"+rezeptListe[cur].text_txt+"</td></tr>";
+	myString += "</table><br/>";
+	
+
+	document.getElementById('display').innerHTML = myString;
+}	
+
+>>>>>>> Stashed changes
 function vor(){
 	if (cur < 3){cur++;} //Länge des Rezeptes
 	console.log("Aktuelles Rezept:"+cur);
@@ -156,6 +313,7 @@ function zurueck(){
 
 function zeigeShoppinglist(){
 	restoreContents();
+<<<<<<< Updated upstream
 	var myString = "<h2>Einkaufsliste</h2>";
 
 	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >löschen</button>";
@@ -166,12 +324,34 @@ function zeigeShoppinglist(){
 	}
 	myString += "</ul>";
 	document.getElementById('display').innerHTML = myString;
+=======
+
+	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
+
+	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
+
+	myString += "<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
+
+	myString += "<h2>Einkaufsliste</h2>";
+
+	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >löschen</button>";
+	
+	myString += "<table><ul>";
+	for (var i = 0; i < shoppinglist.length; i++){	
+		myString += "<tr><td><li>"+shoppinglist[i]+"</li></td><td><button onclick='loeschen(\""+shoppinglist[i]+"\")' >löschen</button></td></tr>";
+	}
+	myString += "</ul></table>";
+
+	document.getElementById('display').innerHTML = myString;
+
+>>>>>>> Stashed changes
 }
 
 
 function populateStorage (){
 	localStorage.setItem('shoppingInhalt', JSON.stringify(shoppinglist));
 }
+<<<<<<< Updated upstream
 function restoreContents (){
 	shoppinglist = JSON.parse(localStorage.getItem('shoppingInhalt'));
 	console.log("ausgeben");
@@ -182,10 +362,23 @@ function addToListe(eintrag) {
 	console.log("klappt" + eintrag);
 	shoppinglist.push(eintrag);
 	populateStorage();
+=======
+
+function restoreContents (){
+	shoppinglist = JSON.parse(localStorage.getItem('shoppingInhalt'));
+	if (shoppinglist == undefined){alert("Deine Einkaufsliste ist leer!");}
+}
+
+function addToListe(eintrag) {
+	shoppinglist.push(eintrag);
+	populateStorage();
+//	if (eintrag==true ;
+>>>>>>> Stashed changes
 }
 
 function allesLoeschen (waren) {
 	shoppinglist.splice(waren);
+<<<<<<< Updated upstream
 	   localStorage.clear();
     window.location.reload();
 	}
@@ -198,6 +391,21 @@ function allesLoeschen (waren) {
 //	entfernen(dinge)
 //}
 
+=======
+	localStorage.clear();
+    window.location.reload();
+	}
+
+
+//function loeschen(einzelne){
+//	console.log("loeschen");
+//	localStorage.removeItem("einzelne");
+//	entfernen(dinge)
+//}
+
+
+
+>>>>>>> Stashed changes
 //timer
 Function.prototype.Timer = function (interval, calls, onend) {
 	var count = 0;
@@ -241,6 +449,7 @@ function countdown(seconds, target) {
 		}
 	};
 	var completed = function () {
+<<<<<<< Updated upstream
 		element.innerHTML = "<strong>Fertig!<\/strong>";
 	};
 	calculateAndShow.Timer(1000, Infinity, completed);
@@ -254,11 +463,35 @@ window.onload = function () {
 
 
 
+=======
+		alert("Fertig!");
+
+	};
+	calculateAndShow.Timer(1000, Infinity, completed);
+};
+
+function zähler (){
+	new countdown(120, 'counter');
+}
+
+function zähler1 (){
+	new countdown(1200, 'counter1');
+}
+
+function zähler2 (){
+	new countdown(420, 'counter2');
+}
+
+function zähler3 (){
+	new countdown(350, 'counter3');
+}
+>>>>>>> Stashed changes
 
 
 </script>
 
 </head>
+<<<<<<< Updated upstream
 <body onload="zeigeRezept()" >
 
 <a onclick="zeigeShoppinglist()" href="#">Einkaufsliste</a>
@@ -266,6 +499,12 @@ window.onload = function () {
 <a onclick="zeigeRezept()" href="#">Rezepte</a>
 
 <div id="display"></div>
+=======
+<body onload="zeigeMenue()" >
+
+<div id="display">
+</div>
+>>>>>>> Stashed changes
 
 </body>
 </html>
