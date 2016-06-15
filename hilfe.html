@@ -9,12 +9,13 @@
 <title>Rezeptliste</title>
 
 <script type="text/javascript">
+
+
 var cur = 0;
 
 shoppinglist = new Array ();
 
 var rezeptListe = loadData();
-
 
 function loadData(){
 
@@ -153,7 +154,7 @@ function zurueck(){
 }
 
 function zeigeShoppinglist(){
-	
+	restoreContents();
 	var myString = "<h2>Einkaufsliste</h2>";
 
 	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >löschen</button>";
@@ -163,33 +164,45 @@ function zeigeShoppinglist(){
 		myString += "<li id='dinge'>"+shoppinglist[i]+"<button onclick='loeschen(\""+shoppinglist[i]+"\")' >löschen</button></li>";
 	}
 	myString += "</ul>";
+	
 	document.getElementById('display').innerHTML = myString;
+	
+}
+
+function populateStorage (){
+	localStorage.setItem('shoppingInhalt', JSON.stringify(shoppinglist));
+}
+function restoreContents (){
+	shoppinglist = JSON.parse(localStorage.getItem('shoppingInhalt'));
+	console.log("ausgeben");
 }
 
 function addToListe(eintrag) {
 
 	console.log("klappt" + eintrag);
 	shoppinglist.push(eintrag);
+	populateStorage();
 }
-	
+
 function allesLoeschen (waren) {
 	shoppinglist.splice(waren);
+	   localStorage.clear();
+    window.location.reload();
 	}
 //var waren = new Array (shoppinglist[i])
 
 	//for (var i = 0; i < shoppinglist.length; i++){
 
 
-function loeschen(){
-//	entfernen(dinge)
-
-}
-
+//function loeschen(inhalt){
+	//localStorage.removeItem('shoppingInhalt');
+	//console.log('leer');
+//}
 
 </script>
 
 </head>
-<body onload="zeigeRezept()" >
+<body onload="zeigeRezept()">
 
 <a onclick="zeigeShoppinglist()" href="#">Einkaufsliste</a>
 
