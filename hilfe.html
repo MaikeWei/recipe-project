@@ -20,9 +20,9 @@ var rezeptListe = loadData();
 
 //Startseite, wird beim Öffnen der App aufgerufen
 function zeigeMenue () {
-	var myString = "<div id= 'top'></div>"
+	var myString = "<div> <img id='start'src='gemüse.png'/> </div>"
 
-	myString += "<h1>Studentenfutter</h1>";
+	myString += "<h1 id='überschrift'>Studentenfutter</h1>";
 
 	myString += "<p>Hallo, dir fehlen die Ideen was du kochen kannst? Dann bist du hier richtig! Mit diesen einfachen Rezepten verzichtest du gerne auf den langweiligen Mensafraß. Außerdem kannst du hier einfach und bequem deine ausgewählten Zutaten, die du nicht daheim hast, auf die Einkaufsliste setzen.</p>";
 
@@ -60,6 +60,7 @@ function loadData(){
 	zutatenListe.push ({name: "Käse gerieben", menge: 150, einheit: "g"});
 	rezeptBuch.push( 
 		{titel: "Lasagne", 
+		 bild: "<img id='rezepte_bild' src='lasagne_rezept.png'/>",
 		 zutaten : zutatenListe, 
 		 zeit : 90,
 		 text_schwierigkeit:"<b>Schwierigkeit: einfach</b>",
@@ -80,6 +81,7 @@ function loadData(){
 
 	rezeptBuch.push( 
 		{titel: "Griechischer Salat", 
+		 bild: "<img id='rezepte_bild' src='salat_rezept.png'/>",
 		 zutaten : zutatenListe, 
 		 zeit : 15,
 		 text_schwierigkeit:"<b>Schwierigkeit: leicht </b>",
@@ -101,6 +103,7 @@ function loadData(){
 	zutatenListe.push ({name: "Limette(n)", menge: 1, einheit: " "});
 	rezeptBuch.push( 
 		{titel: "Mexikanische Tomatensuppe", 
+		 bild: "<img id='rezepte_bild' src='suppe_rezept.png'/>",
 		 zutaten : zutatenListe, 
 		 zeit: 30,
 		 text_schwierigkeit:"<b>Schwierigkeit: total einfach</b>",
@@ -122,6 +125,7 @@ function loadData(){
 	zutatenListe.push ({name: "Knoblauch", menge: 1, einheit: "Zehe/n"});
 	rezeptBuch.push( 
 		{titel: "Paprika-Zucchini-Nudeln", 
+		 bild: "<img id='rezepte_bild' src='paprika_rezept.png'/>",
 		 zutaten : zutatenListe, 
 		 zeit : 45,
 		 text_schwierigkeit:"<b>Schwierigkeit: leicht</b>",
@@ -136,16 +140,12 @@ function zeigeRezept(){ //für 4 Personen
 	var rezeptListe = loadData();
 
 	//Navigation durch Buttons, Rezeptseite und Einkaufsliste gleich
-	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
-
-	myString += "<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
-
-	myString += "<h1>Rezepte</h1>"
+	myString += "<h1 id='überschrift'>Rezepte</h1>"
 
 	//Name des Rezeptes mit Navigation zu vorherigem Rezept und folgendem
-	myString += "<a onclick='zurueck()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='nav' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
 
 	//Verlinkung durch Button zu 1 Portion
 	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
@@ -153,8 +153,15 @@ function zeigeRezept(){ //für 4 Personen
 	//Verlinkung durch Button zu 2 Portionen
 	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
 
+	myString+= "<table>";
+
+	myString += "<tr><td>"+rezeptListe[cur].bild+"</td></tr>";
+
+	myString += "</table><br/>";
+
 	//Zutatenliste
 	myString += "<table>";
+
 	myString += "<tr><td id='spalte1'><b>Zutaten</b></td><td id='spalte2'><b>Menge</b></td><td id='spalte3'></td></tr>";	
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
 	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
@@ -181,20 +188,19 @@ function zeigeRezept(){ //für 4 Personen
 function zeigePortion(){ //2Portionen
 	var rezeptListe = loadData();
 
-	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
+	myString += "<h1 id='überschrift'>Rezepte</h1>"
 
-	myString += "<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
-
-	myString += "<h1>Rezepte</h1>"
-
-	myString += "<a onclick='zurueck()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='nav' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
 
 	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
 
 	myString += "<button onClick='zeigeRezept()' >4 Portionen</button>";
 
+	myString+= "<table>";
+	myString += "<tr><td>"+rezeptListe[cur].bild+"</td></tr>";
+	myString += "</table><br/>";
 
 	myString += "<table>";
 	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
@@ -224,15 +230,11 @@ function zeigePortion(){ //2Portionen
 function zeigePortionSingle(){ //Rezept für 1 Portion
 	var rezeptListe = loadData();
 
-	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
+	myString += "<h1 id='überschrift'>Rezepte</h1>"
 
-	myString += "<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
-
-	myString += "<h1>Rezepte</h1>"
-
-	myString += "<a onclick='zurueck()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='nav' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='nav' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
 
 //	myString += "<select size='10'> <option onClick='zeigePortionSingle()' >1 Portion</option><option value='2Portionen' onClick='zeigePortion()' >2 Portionen</option> <option value='4Portionen' onClick='zeigeRezept()' >4 Portionen</option></select>";
 
@@ -240,6 +242,9 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 
 	myString += "<button onClick='zeigeRezept()' >4 Portionen</button>";
 
+	myString+= "<table>";
+	myString += "<tr><td>"+rezeptListe[cur].bild+"</td></tr>";
+	myString += "</table><br/>";
 
 	myString += "<table>";
 	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
@@ -281,13 +286,9 @@ function zurueck(){
 function zeigeShoppinglist(){
 	restoreContents();
 
-	var myString = "<button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>";
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>";
-
-	myString += "<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
-
-	myString += "<h2>Einkaufsliste</h2>";
+	myString += "<h1 id='überschrift'>Einkaufsliste</h1>";
 
 	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >löschen</button>";
 	
