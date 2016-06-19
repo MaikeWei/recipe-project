@@ -133,6 +133,7 @@ function loadData(){
 		}
 	);	
 	return rezeptBuch;
+
 }
 
 
@@ -249,7 +250,7 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 	myString += "</table><br/>";
 
 	myString += "<table>";
-	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
+	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
 		myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/4+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/4+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")'><img class='plus' src='plus.png'/></a></td></tr>";
 	} 
@@ -270,6 +271,23 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 
 	document.getElementById('display').innerHTML = myString;
 }	
+
+
+//function formular (){
+//	var rezeptListe = loadData();
+
+//	var myString = "<form name='Formular' action='' method='post'>";
+//	myString += "<label for='titel'> Titel: </label><input size='30' maxlength='30' name='rezeptListe[cur].titel' id='titel'>";
+//	myString += "<label for='bild'> Bild:</label><input size='30' maxlength='100%' name='rezeptListe[cur].bild' id='bild'>";
+//	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){
+//	myString += "<label for='name'> Zutaten:</label><input size='30' maxlength="" ='20' name='rezeptListe[cur].name' id='name'><input size='30' maxlength='4' name='rezeptListe[cur].menge' id='menge'><input size='30' maxlength='5' name='rezeptListe[cur].einheit' id='einheit'>";
+//	}
+//	myString += "<label for='zeit'>Zeit in Minuten: </label><input size='30'  maxlength='3' name='rezeptListe[cur].zeit' id='zeit'>";
+//	myString += "<label for='text_schwierigkeit'>Schwierigkeit: </label><input size='30'  maxlength='15' name='rezeptListe[cur].text_schwierigkeit' id='text_schwierigkeit'>";
+//	myString += "<label for='text_txt'>Beschreibung: </label><input size='30' maxlength='1000' name='rezeptListe[cur].text_txt' id='text_txt'>";
+//	myString += "<button id='los' type='submit'> Absenden</button>";
+//	myString += "</form>";
+//}
 
 
 //function myPortionen(){
