@@ -153,6 +153,8 @@ function zeigeRezept(){ //für 4 Personen
 	//Verlinkung durch Button zu 2 Portionen
 	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
 
+//	myString += "<label>Portionen:</label><select id='mySelect' onchange='myPortionen()'/><option value='--'> ------ </option><option value='single'>1 Portion</option><option value='two' >2 Portionen</option><option value='four'>4 Portionen</option></select>";
+
 	myString+= "<table>";
 
 	myString += "<tr><td>"+rezeptListe[cur].bild+"</td></tr>";
@@ -268,6 +270,15 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 	document.getElementById('display').innerHTML = myString;
 }	
 
+
+//function myPortionen(){
+//		if (value == 'single') {onchange='zeigePortionSingle()'};
+//		if ('two'.value) zeigePortion();
+//		if ('four'.value) zeigeRezept();
+//}
+
+
+
 //Mit Button verknüpft, leitet zum folgenden Rezept weiter
 function vor(){
 	if (cur < 4){cur++;} //Länge des Rezeptes
@@ -288,13 +299,13 @@ function zeigeShoppinglist(){
 
 	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<h1 id='überschrift'>Einkaufsliste</h1>";
+	myString += "<h1 id='überschrift'>Einkaufsliste</h1>"
 
 	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >löschen</button>";
 	
 	myString += "<table><ul>";
 	for (var i = 0; i < shoppinglist.length; i++){	
-		myString += "<tr><td><li>"+shoppinglist[i]+"</li></td><td><button onclick='loeschen(\""+shoppinglist[i]+"\")' >löschen</button></td></tr>";
+		myString += "<tr><td><li>"+shoppinglist[i]+"</li></td><td><input type='button' value='löschen' onclick='loeschen(\""+ shoppinglist[i] +"\")'></td></tr>";
 	}
 	myString += "</ul></table>";
 
@@ -327,11 +338,14 @@ function allesLoeschen (waren) {
 	}
 
 
-//function loeschen(einzelne){
-//	console.log("loeschen");
-//	localStorage.removeItem("einzelne");
-//	entfernen(dinge)
-//}
+function loeschen(einzelne){
+
+	
+	console.log("loeschen");
+	localStorage.removeItem(einzelne);
+	window.location = window.location;
+}
+
 
 
 
