@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="studentenfutter.manifest">
 <head>
 
 <script  src="jquery.js"> </script>
@@ -145,7 +145,7 @@ function zeigeRezept(){ //für 4 Personen
 	myString += "<h1 id='überschrift'>Rezepte</h1>"
 
 	//Name des Rezeptes mit Navigation zu vorherigem Rezept und folgendem
-	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><br/><br/>";
 
 	//Verlinkung durch Button zu 1 Portion
 	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
@@ -166,7 +166,7 @@ function zeigeRezept(){ //für 4 Personen
 
 	myString += "<tr><td id='spalte1'><b>Zutaten</b></td><td id='spalte2'><b>Menge</b></td><td id='spalte3'></td></tr>";	
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
-	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
+	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='plus.png'/></a></td></tr>";
 	}
 	myString += "</table><br/>";
 
@@ -194,7 +194,7 @@ function zeigePortion(){ //2Portionen
 
 	myString += "<h1 id='überschrift'>Rezepte</h1>"
 
-	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png/'></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png/'></a><br/><br/>";
 
 	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
 
@@ -209,7 +209,7 @@ function zeigePortion(){ //2Portionen
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
 
 	//Menge der Zutaten wird durch 2 geteilt
-	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/2+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/2+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
+	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/2+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/2+" "+rezeptListe[cur].zutaten[i].einheit+" "+rezeptListe[cur].zutaten[i].name+"\")'><img class='plus' src='plus.png'/></a></td></tr>";
 	}
 
 	myString += "</table><br/>";
@@ -236,7 +236,7 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 
 	myString += "<h1 id='überschrift'>Rezepte</h1>"
 
-	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_links.png/'></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='icons/pfeil_rechts.png/'></a><br/><br/>";
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><br/><br/>";
 
 //	myString += "<select size='10'> <option onClick='zeigePortionSingle()' >1 Portion</option><option value='2Portionen' onClick='zeigePortion()' >2 Portionen</option> <option value='4Portionen' onClick='zeigeRezept()' >4 Portionen</option></select>";
 
@@ -251,8 +251,9 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 	myString += "<table>";
 	myString += "<tr><td><b>Zutaten</b></td><td><b>Menge</b></td><td></td></tr>";	
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){	
-	myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/4+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/4+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")' ><img class='plus' src='icons/plus.png/'></a></td></tr>";
-	} //Menge der Zutaten wird von 4 Portionen ausgehend durch 4 geteilt
+		myString += "<tr><td id='spalte1'>"+rezeptListe[cur].zutaten[i].name+"</td><td id='spalte2'>"+rezeptListe[cur].zutaten[i].menge/4+" "+rezeptListe[cur].zutaten[i].einheit+"</td><td id='spalte3'><a href='#' onClick='addToListe(\""+rezeptListe[cur].zutaten[i].menge/4+' '+rezeptListe[cur].zutaten[i].einheit+' '+rezeptListe[cur].zutaten[i].name+"\")'><img class='plus' src='plus.png'/></a></td></tr>";
+	} 
+	//Menge der Zutaten wird von 4 Portionen ausgehend durch 4 geteilt
 
 	myString += "</table><br/>";
 
