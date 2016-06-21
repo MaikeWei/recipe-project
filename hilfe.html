@@ -20,7 +20,7 @@ var rezeptListe = loadData();
 
 //Startseite, wird beim Öffnen der App aufgerufen
 function zeigeMenue () {
-	var myString = "<div> <img id='start'src='gemüse.png'/> </div>"
+	var myString = "<div> <img id='start'src='gemüse.png'/> </div>";
 
 	myString += "<h1 id='überschrift'>Studentenfutter</h1>";
 
@@ -32,6 +32,9 @@ function zeigeMenue () {
 	myString += "<button class='startseite' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button><br/><br/>";
 
 	myString += "<button type='button' class='startseite' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/>";
+
+
+	myString += "<button type='button' class='startseite' onclick='zeigeFormular()' href='#'>Formular </button><br/>";
 
 	//zeigt zeigeMenue() beim Aufrufen auf dem Display an
 	document.getElementById('display').innerHTML = myString;
@@ -143,18 +146,18 @@ function zeigeRezept(){ //für 4 Personen
 	//Navigation durch Buttons, Rezeptseite und Einkaufsliste gleich
 	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<h1 id='überschrift'>Rezepte</h1>"
+	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
 	//Name des Rezeptes mit Navigation zu vorherigem Rezept und folgendem
 	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><br/><br/>";
 
 	//Verlinkung durch Button zu 1 Portion
-	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
+//	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
 
 	//Verlinkung durch Button zu 2 Portionen
-	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
+//	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
 
-//	myString += "<label>Portionen:</label><select id='mySelect' onchange='myPortionen()'/><option value='--'> ------ </option><option value='single'>1 Portion</option><option value='two' >2 Portionen</option><option value='four'>4 Portionen</option></select>";
+	myString += "<label>Portionen:</label><select id='mySelect' onchange='myPortionen()'/><option value='--'> ------ </option><option value='single'>1 Portion</option><option value='two' >2 Portionen</option><option value='four'>4 Portionen</option></select>";
 
 	myString+= "<table>";
 
@@ -193,7 +196,7 @@ function zeigePortion(){ //2Portionen
 
 	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<h1 id='überschrift'>Rezepte</h1>"
+	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
 	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><br/><br/>";
 
@@ -235,11 +238,11 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 
 	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<h1 id='überschrift'>Rezepte</h1>"
+	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
 	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><br/><br/>";
 
-//	myString += "<select size='10'> <option onClick='zeigePortionSingle()' >1 Portion</option><option value='2Portionen' onClick='zeigePortion()' >2 Portionen</option> <option value='4Portionen' onClick='zeigeRezept()' >4 Portionen</option></select>";
+//myString += "<select size='10'> <option onClick='zeigePortionSingle()' >1 Portion</option><option value='2Portionen' onClick='zeigePortion()' >2 Portionen</option> <option value='4Portionen' onClick='zeigeRezept()' >4 Portionen</option></select>";
 
 	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
 
@@ -273,28 +276,41 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 }	
 
 
-//function formular (){
-//	var rezeptListe = loadData();
+//Formular
+function zeigeFormular (){
+	var rezeptListe = loadData();
+	
+var myString = "<p>Titel des Rezepts : </p> <input type='text' name:'rezeptfeld'>";
 
-//	var myString = "<form name='Formular' action='' method='post'>";
-//	myString += "<label for='titel'> Titel: </label><input size='30' maxlength='30' name='rezeptListe[cur].titel' id='titel'>";
-//	myString += "<label for='bild'> Bild:</label><input size='30' maxlength='100%' name='rezeptListe[cur].bild' id='bild'>";
-//	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){
-//	myString += "<label for='name'> Zutaten:</label><input size='30' maxlength="" ='20' name='rezeptListe[cur].name' id='name'><input size='30' maxlength='4' name='rezeptListe[cur].menge' id='menge'><input size='30' maxlength='5' name='rezeptListe[cur].einheit' id='einheit'>";
-//	}
-//	myString += "<label for='zeit'>Zeit in Minuten: </label><input size='30'  maxlength='3' name='rezeptListe[cur].zeit' id='zeit'>";
-//	myString += "<label for='text_schwierigkeit'>Schwierigkeit: </label><input size='30'  maxlength='15' name='rezeptListe[cur].text_schwierigkeit' id='text_schwierigkeit'>";
-//	myString += "<label for='text_txt'>Beschreibung: </label><input size='30' maxlength='1000' name='rezeptListe[cur].text_txt' id='text_txt'>";
-//	myString += "<button id='los' type='submit'> Absenden</button>";
-//	myString += "</form>";
-//}
+for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){
+myString += "<p>Zutaten : </p> <input size='30' maxlength='20' type='text' name:'zutatfeld'> <p>Menge: </p> <input size='30' maxlength='4' type='text' name:'mengefeld'><p>Einheit : </p> <input size='30' maxlength='5' type='text' name:'einheitfeld'>";
+}
+
+myString += "<p>Zeit in Minuten : </p> <input size='30'  maxlength='3' type='' name:'zeitfeld'>";
+
+myString += "<p>Schwierigkeit: </p> <input size='30'  maxlength='15' type='text' name:'schwierigkeitsfeld'>";
+
+myString += "<p>Beschreibung: </p> <input size='30' maxlength='1000' type='text' name:'textkeitsfeld'>";
 
 
-//function myPortionen(){
-//		if (value == 'single') {onchange='zeigePortionSingle()'};
-//		if ('two'.value) zeigePortion();
-//		if ('four'.value) zeigeRezept();
-//}
+myString += "<button type='button' onClick='nZutat()' href='#'>hinzufügen</button>"
+	
+	document.getElementById('display').innerHTML = myString;	
+
+}
+
+function nZutat(){
+	//var myString = "<p>Zutaten : </p> <input type='text' name:'zutatfeld'> <p>Menge: </p> <input type='text' name:'mengefeld'><p>Einheit : </p> <input type='text' name:'einheitfeld'><button type='button' onClick='nZutat()' href='#'>hinzufügen</button>";
+	rezeptListe.rezeptBuch.titel.push(rezeptfeld.value);
+	document.getElementById('display').innerHTML = myString;
+}
+
+
+function myPortionen(Feld){
+		if (Feld == '1 Portion') {onchange='zeigePortionSingle()'};
+		if (Feld == '2 Portionen') {onchange='zeigePortion()'};
+		if (Feld == "4 Portionen") {onchange = "zeigeRezept()"};
+}
 
 
 
@@ -318,7 +334,7 @@ function zeigeShoppinglist(){
 
 	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
 
-	myString += "<h1 id='überschrift'>Einkaufsliste</h1>"
+	myString += "<h1 id='überschrift'>Einkaufsliste</h1>";
 
 	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >löschen</button>";
 	
@@ -333,7 +349,7 @@ function zeigeShoppinglist(){
 
 
 function populateStorage (){
-	localStorage.setItem('shoppingInhalt', JSON.stringify(shoppinglist));
+	localStorage.setItem('shoppingInhalt', JSON.stringify(shoppinglist)); //shoppingInhalt = key
 }
 
 function restoreContents (){
@@ -343,10 +359,19 @@ function restoreContents (){
 
 //nimmt die Einträge von name, menge und einheit und pusht sie in die Shoppingliste
 function addToListe(eintrag) {
+	var shoppinglist = JSON.parse(window.localStorage.getItem('shoppinglist')); //liest vom localStorage
+
+	var currentEntry; //wird mit entryNumber gleichgesetzt
+
+	//erzeugt für jede Zutat eine eigene hochzählende Nummer in der Shoppinglist, solange wie shoppinglist ist
+	for(var entryNumber = 0; shoppinglist.length; entryNumber++) {
+		currentEntry = shoppinglist[entryNumber];
+
+	}
+
 	shoppinglist.push(eintrag);
 	populateStorage();
 //	if (eintrag==true ;
-
 }
 
 //leer den gespeicherten Inhalt in der Shoppingliste
@@ -357,12 +382,15 @@ function allesLoeschen (waren) {
 	}
 
 
-function loeschen(einzelne){
+function loeschen(){
+	restoreContents();
 
+//	shoppinglist.splice('shoppingInhalt', 1);
 	
 	console.log("loeschen");
-	localStorage.removeItem(einzelne);
-	window.location = window.location;
+
+//	localStorage.removeItem('shoppingInhalt');
+	window.location.reload();
 }
 
 
