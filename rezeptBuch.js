@@ -1,24 +1,28 @@
 var cur = 0;
 
+//shoppinlist wird globale Variable
 shoppinglist = new Array ();
+
+//lädt Inhalt des localStorage
 restoreContents();
+
+//setzt Variable rezeptListe global gleich mit der Funktion loadData () in der sich die zutatenListen befinden
 var rezeptListe = loadData();
 
 //Startseite, wird beim Öffnen der App aufgerufen
 function zeigeMenue () {
-
+	//Bild auf der Startseite
 	var myString = "<div> <img id='start'src='gemüse.png'/> </div>";
 
 	myString += "<h1 id='überschrift'>Studentenfutter</h1>";
 
+	//Ansprache
 	myString += "<p>Hallo, dir fehlen die Ideen was du kochen kannst? Dann bist du hier richtig! Mit diesen einfachen Rezepten verzichtest du gerne auf den langweiligen Mensafraß. Außerdem kannst du hier einfach und bequem deine ausgewählten Zutaten, die du nicht daheim hast, auf die Einkaufsliste setzen.</p>";
 
 	//Navigation zu den einzelnen Seiten
-
 	myString += "<button class='startseite' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button><br/><br/>";
 
 	myString += "<button type='button' class='startseite' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button><br/><br/>";
-
 
 	myString += "<button type='button' class='startseite' onclick='zeigeFormular()' href='#'>Formular </button><br/>";
 
@@ -27,7 +31,7 @@ function zeigeMenue () {
 };
 
 
-//Rezeptlisten
+//ZutatenListen
 function loadData(){
 
 	var rezeptBuch = new Array ();
@@ -35,6 +39,7 @@ function loadData(){
 	//1. Rezept, Lasagne, cur = 0, wird als erstes angezeigt
 	var zutatenListe = new Array();
 	
+	//push hängt die Elemente an das Ende der Zutatenliste
 	zutatenListe.push ({name: "Zwiebel(n)", menge: 1, einheit: " "});
 	zutatenListe.push ({name: "Knoblauch", menge: 2, einheit: "Zehe/n"});
 	zutatenListe.push ({name: "Olivenöl", menge: 2, einheit: "EL"});
@@ -47,6 +52,8 @@ function loadData(){
 	zutatenListe.push ({name: "Milch", menge: 300, einheit: "ml"});
 	zutatenListe.push ({name: "Lasagneblätter", menge: 16, einheit: "Stück"});
 	zutatenListe.push ({name: "Käse gerieben", menge: 150, einheit: "g"});
+
+	//die zutatenListe wird in das rezeptBuch integriert
 	rezeptBuch.push( 
 		{titel: "Lasagne", 
 		 bild: "<img id='rezepte_bild' src='lasagne_rezept.png'/>",
@@ -123,7 +130,7 @@ function loadData(){
 		 text_notiz:""
 		}
 	);	
-	return rezeptBuch;
+	return rezeptBuch; //gibt aus
 
 }
 
@@ -173,7 +180,8 @@ function zeigeRezept(){ //für 4 Personen
 	myString += "</table><br/>";
 	
 	myString += "<table>";
-	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='80' name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td> </td></tr>";
+	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='100' name:'notizfeld'>Füge hier eine Notiz ein.</textarea></td></tr>";
+	myString += "<tr><td></td><td><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr>";
 	myString += "</table><br/>";
 	
 	var mytext = "<table>";
@@ -184,6 +192,7 @@ function zeigeRezept(){ //für 4 Personen
 	
 	document.getElementById('display').innerHTML = myString;
 }	
+
 var notiz= new Array();
 	function notieren(){
 
@@ -228,7 +237,8 @@ function zeigePortion(){ //2Portionen
 	myString += "</table><br/>";
 	
 	myString += "<table>";
-	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='80' name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td> </td></tr>";
+	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='100' name:'notizfeld'>Füge hier eine Notiz ein.</textarea></td></tr>";
+	myString += "<tr><td></td><td><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr>";
 	myString += "</table><br/>";
 	
 	var mytext = "<table>";
@@ -279,7 +289,8 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 	myString += "</table><br/>";
 	
 	myString += "<table>";
-	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='80' name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td> </td></tr>";
+	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='100' name:'notizfeld'>Füge hier eine Notiz ein.</textarea></td></tr>";
+	myString += "<tr><td></td><td><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr>";
 	myString += "</table><br/>";
 	
 	var mytext = "<table>";
@@ -296,17 +307,17 @@ function zeigeFormular (){
 
 	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button>"+"  "+"<button class='nav' type='button' onclick='zeigeFormular()' href='#'> Formular </button></div><br/>";
 	
-	myString += "<p>Titel des Rezepts : </p> <input type='text' name:'rezeptfeld'>";
+	myString += "<label>Titel des Rezepts : </label>"+" <input type='text' name:'rezeptfeld'><br/><br/>";
 
 	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){
-	myString += "<p>Zutaten : </p> <input size='30' maxlength='20' type='text' name:'zutatfeld'> <p>Menge: </p> <input size='30' maxlength='4' type='text' name:'mengefeld'><p>Einheit : </p> <input size='30' maxlength='5' type='text' name:'einheitfeld'>";
+	myString += "<label>Zutaten : </label>"+" <input size='20' maxlength='20' type='text' name:'zutatfeld'> <label>Menge: </label>"+" <input size='20' maxlength='4' type='text' name:'mengefeld'><label>Einheit : </label>"+" <input size='20' maxlength='5' type='text' name:'einheitfeld'><br/><br/>";
 	}
 
-	myString += "<p>Zeit in Minuten : </p> <input size='30'  maxlength='3' type='' name:'zeitfeld'>";
+	myString += "<label>Zeit in Minuten : </label>"+" <input size='20'  maxlength='3' type='' name:'zeitfeld'><br/><br/>";
 
-	myString += "<p>Schwierigkeit: </p> <input size='30'  maxlength='15' type='text' name:'schwierigkeitsfeld'>";
+	myString += "<label>Schwierigkeit: </label>"+" <input size='20'  maxlength='15' type='text' name:'schwierigkeitsfeld'><br/><br/>";
 
-	myString += "<p>Beschreibung: </p> <input size='30' maxlength='1000' type='text' name:'textkeitsfeld'>";
+	myString += "<label>Beschreibung: </label>"+" <textarea rows='5' cols='100' name:'textfeld'>Füge hier eine Beschreibung ein.</textarea><br/><br/>";
 
 
 	myString += "<button type='button' onClick='nZutat()' href='#'>hinzufügen</button>"
@@ -348,13 +359,14 @@ function zurueck(){
 function zeigeShoppinglist(){
 	restoreContents();
 
-	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button>"+"  "+"<button class='nav' type='button' onclick='zeigeFormular()' href='#'> Formular </button></div><br/>";
 
 	myString += "<h1 id='überschrift'>Einkaufsliste</h1>";
 
-	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >löschen</button>";
-	
-	myString += "<table><ul>";
+	//über der Shoppinglist-Tabelle befindet sich ein Button, der die gesamte Liste löscht
+	myString += "<button onclick='allesLoeschen(\""+shoppinglist[i]+"\")' >Alles löschen</button>";
+
+	myString += "<table><ul>"; //in einer Tabelle sind die Elemente in der Linken Spalte integriert und in die rechte Spalte beinhaltet löschen-Buttons
 	for (var i = 0; i < shoppinglist.length; i++){	
 		myString += "<tr><td><li>"+shoppinglist[i]+"</li></td><td><input type='button' value='löschen' onclick='loeschen(\""+ i +"\")'></td></tr>";
 	}
@@ -412,28 +424,32 @@ function loeschen(index){
 
 
 //Timer
-Function.prototype.Timer = function (interval, calls, onend) { //beim Klicken auf den Timer-Button wird Timer gestartet
+//prototypische Erweiterung, durch Zuweisung ".Timer" verfügen alle Funktionen über das Notierte als gewöhnliche Unterobjekte 
+Function.prototype.Timer = function (interval, calls, onend) { //beim Klicken auf den Timer-Button wird Timer gestartet; interval = Zeit zwischen Aufrufen in Millisekunden; calls = Anzahl der Aufrufe; onend = Wird am Ende der Wiederholung gestartet
 	var count = 0; //beginnt bei 0 zu zählen
-	var payloadFunction = this;
-	var startTime = new Date();
+	var payloadFunction = this; //ermöglicht Zugriff
+	var startTime = new Date(); //speichert Startzeitpunkt
 	var callbackFunction = function () {
 		return payloadFunction(startTime, count);
-	};
-	var endFunction = function () {
+	}
+
+	var endFunction = function () { //prüft am Ende des Ablaufs, und beendet die Funktion, indem es complete() einleitet
 		if (onend) {
 			onend(startTime, count, calls);
 		}
-	};
-	var timerFunction = function () {
+	}
+
+	var timerFunction = function () { //Wiederholt den Ablauf, bei Timerzeit = 0 wird auf endfunction() zugegriffen
 		count++;
 		if (count < calls && callbackFunction() != false) {
 			window.setTimeout(timerFunction, interval);
 		} else {
 			endFunction();
 		}
-	};
+	}
+
 	timerFunction();
-};
+}
 
 function leadingzero(number) {
 	return (number < 10) ? '0' + number : number; //0 wird vor einstellige Zahl geschrieben, damit immer gleiche Anzahl an Zahlen da steht
@@ -454,13 +470,15 @@ function countdown(seconds, target) {
 		} else {
 			return false;
 		}
-	};
+	}
+
 	var completed = function () { //wenn Timer auf 0 abgelaufen, wird Ton gespielt und Pop-Up geöffnet
 		audio.play();
 		alert("Fertig!");
-	};
+	}
+
 	calculateAndShow.Timer(1000, Infinity, completed); //Hauptfunktion, durchläuft. beendet. verbindet obere Funktion mit CalculateAndShow()
-};
+}
 
 //einzelne Timerzahlen, die im Zubereitungstext sind
 function zähler (){
