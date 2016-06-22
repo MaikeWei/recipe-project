@@ -33,12 +33,12 @@ body {
 
 
 
-/*Rezepte und Einkaufsliste*/
-.nav { /*Buttons am oberen Bildrand: Menü, Rezepte, Einkaufsliste*/
+/*Rezepte, Einkaufsliste und Formular*/
+.nav { /*Buttons am oberen Bildrand: Menü, Rezepte, Einkaufsliste, Formular*/
 	display: inline-flex;
-	marign: 0 auto;
+	margin: 0 auto;
 	text-align: center;
-	width: 32%;
+	width: 24%;
 	padding: 1%;
 }
 

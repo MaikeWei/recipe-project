@@ -132,7 +132,7 @@ function zeigeRezept(){ //für 4 Personen
 	var rezeptListe = loadData();
 
 	//Navigation durch Buttons, Rezeptseite und Einkaufsliste gleich
-	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button>"+"  "+"<button class='nav' type='button' onclick='zeigeFormular()' href='#'> Formular </button></div><br/>";
 
 	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
@@ -173,7 +173,7 @@ function zeigeRezept(){ //für 4 Personen
 	myString += "</table><br/>";
 	
 	myString += "<table>";
-	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td> </td></tr>";
+	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='80' name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td> </td></tr>";
 	myString += "</table><br/>";
 	
 	var mytext = "<table>";
@@ -193,7 +193,7 @@ var notiz= new Array();
 function zeigePortion(){ //2Portionen
 	var rezeptListe = loadData();
 
-	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button>"+"  "+"<button class='nav' type='button' onclick='zeigeFormular()' href='#'> Formular </button></div><br/>";
 
 	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
@@ -227,6 +227,14 @@ function zeigePortion(){ //2Portionen
 	myString += "<tr><td id='spalte1'><b>Zubereitung <br/>" +' '+rezeptListe[cur].text_schwierigkeit+"</b></td></tr><tr><td id='spalte1'>"+rezeptListe[cur].text_txt+"</td></tr>";
 	myString += "</table><br/>";
 	
+	myString += "<table>";
+	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='80' name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td> </td></tr>";
+	myString += "</table><br/>";
+	
+	var mytext = "<table>";
+	mytext += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td>" + notiz + "</td></tr>";
+	mytext += "</table><br/>";
+
 
 	document.getElementById('display').innerHTML = myString;
 }	
@@ -235,7 +243,7 @@ function zeigePortion(){ //2Portionen
 function zeigePortionSingle(){ //Rezept für 1 Portion
 	var rezeptListe = loadData();
 
-	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button></div><br/>";
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button>"+"  "+"<button class='nav' type='button' onclick='zeigeFormular()' href='#'> Formular </button></div><br/>";
 
 	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
@@ -270,6 +278,13 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 	myString += "<tr><td id='spalte1'><b>Zubereitung <br/>" +' '+rezeptListe[cur].text_schwierigkeit+"</b></td></tr><tr><td id='spalte1'>"+rezeptListe[cur].text_txt+"</td></tr>";
 	myString += "</table><br/>";
 	
+	myString += "<table>";
+	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='80' name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td> </td></tr>";
+	myString += "</table><br/>";
+	
+	var mytext = "<table>";
+	mytext += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td>" + notiz + "</td></tr>";
+	mytext += "</table><br/>";
 
 	document.getElementById('display').innerHTML = myString;
 }	
@@ -278,21 +293,23 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 //Formular
 function zeigeFormular (){
 	var rezeptListe = loadData();
+
+	var myString = "<div id='top'><button class='nav' type='button' onclick='zeigeMenue()' href='#'> Menü </button>"+"  "+"<button class='nav' type='button' onclick='zeigeRezept()' href='#'> Rezepte </button>"+"  "+"<button class='nav' type='button' onclick='zeigeShoppinglist()' href='#'>Einkaufsliste </button>"+"  "+"<button class='nav' type='button' onclick='zeigeFormular()' href='#'> Formular </button></div><br/>";
 	
-var myString = "<p>Titel des Rezepts : </p> <input type='text' name:'rezeptfeld'>";
+	myString += "<p>Titel des Rezepts : </p> <input type='text' name:'rezeptfeld'>";
 
-for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){
-myString += "<p>Zutaten : </p> <input size='30' maxlength='20' type='text' name:'zutatfeld'> <p>Menge: </p> <input size='30' maxlength='4' type='text' name:'mengefeld'><p>Einheit : </p> <input size='30' maxlength='5' type='text' name:'einheitfeld'>";
-}
+	for (var i = 0; i < rezeptListe[cur].zutaten.length; i++){
+	myString += "<p>Zutaten : </p> <input size='30' maxlength='20' type='text' name:'zutatfeld'> <p>Menge: </p> <input size='30' maxlength='4' type='text' name:'mengefeld'><p>Einheit : </p> <input size='30' maxlength='5' type='text' name:'einheitfeld'>";
+	}
 
-myString += "<p>Zeit in Minuten : </p> <input size='30'  maxlength='3' type='' name:'zeitfeld'>";
+	myString += "<p>Zeit in Minuten : </p> <input size='30'  maxlength='3' type='' name:'zeitfeld'>";
 
-myString += "<p>Schwierigkeit: </p> <input size='30'  maxlength='15' type='text' name:'schwierigkeitsfeld'>";
+	myString += "<p>Schwierigkeit: </p> <input size='30'  maxlength='15' type='text' name:'schwierigkeitsfeld'>";
 
-myString += "<p>Beschreibung: </p> <input size='30' maxlength='1000' type='text' name:'textkeitsfeld'>";
+	myString += "<p>Beschreibung: </p> <input size='30' maxlength='1000' type='text' name:'textkeitsfeld'>";
 
 
-myString += "<button type='button' onClick='nZutat()' href='#'>hinzufügen</button>"
+	myString += "<button type='button' onClick='nZutat()' href='#'>hinzufügen</button>"
 	
 	document.getElementById('display').innerHTML = myString;	
 
