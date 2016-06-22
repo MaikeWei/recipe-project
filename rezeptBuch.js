@@ -53,7 +53,7 @@ function loadData(){
 		 zutaten : zutatenListe, 
 		 zeit : 90,
 		 text_schwierigkeit:"<b>Schwierigkeit: einfach</b>",
-		 text_txt: "<button type='button' onclick=zählerx() id='counterx'>Test</button>Den Backofen auf 200°C Ober-und Unterhitze vorheizen. Die Zwiebel und den Knoblauch abzhiehen, fein hacken und in einem Topf mit 2 EL heißem Öl glasig dünsten. Das Hackfleisch zugeben, krümelig braten und die Tomaten zugeben. Den Rotwein angießen, salzen, pfeffern und bei mittlerer Hitze <button type='button' onclick=zähler() id='counter'> 20 Minuten</button> unter gelegentlichem Rühren köcheln lassen. Das Basilikum abbrausen, trocken schütteln, die Blättchen grob hacken und unter die Hackfleischsauce rühren. Für die Béchamel die Butter in einem Topf zerlassen, das Mehl darüber stauben und unter Rühren anschwitzen. Die Milch nach und nach zugießen und mit einem Schneebesen kräftig verrühren, damit sich keine Klumpen bilden. <button type='button' onclick=zähler1() id='counter1'> 2 Minuten</button>dicklich einköcheln lassen, mit Salz, Pfeffer und Muskat würzen und vom Herd ziehen. 1-2 Schöpfkellen von der Hackfleischmasse in eine gefettete Auflaufform verteilen, mit Lasagneplatten bedecken und diese mit etwas Béchamelsauce bestreichen. Diesen Vorgang so oft wiederholen, bis alle Zutaten aufgebraucht sind und die Lasagne aus mehrerer Schichten besteht. Dabei mit der Hackfleischmasse abschließen und diese mit dem Käse bestreuen. Im vorgeheizten Ofen <button type='button' onclick=zähler2() id='counter2'> 40 Minuten</button> goldbraun backen. Herausnehmen und in Stücke portioniert auf Teller angerichtet servieren. Nach Belieben frischen, grünen Salat dazu reichen."
+		 text_txt: "<button type='button' onclick=zählerx() id='counterx'>Test</button><br/>Den Backofen auf 200°C Ober-und Unterhitze vorheizen. Die Zwiebel und den Knoblauch abzhiehen, fein hacken und in einem Topf mit 2 EL heißem Öl glasig dünsten. Das Hackfleisch zugeben, krümelig braten und die Tomaten zugeben. Den Rotwein angießen, salzen, pfeffern und bei mittlerer Hitze <button type='button' onclick=zähler() id='counter'> 20 Minuten</button> unter gelegentlichem Rühren köcheln lassen. Das Basilikum abbrausen, trocken schütteln, die Blättchen grob hacken und unter die Hackfleischsauce rühren. Für die Béchamel die Butter in einem Topf zerlassen, das Mehl darüber stauben und unter Rühren anschwitzen. Die Milch nach und nach zugießen und mit einem Schneebesen kräftig verrühren, damit sich keine Klumpen bilden. <button type='button' onclick=zähler1() id='counter1'> 2 Minuten</button>dicklich einköcheln lassen, mit Salz, Pfeffer und Muskat würzen und vom Herd ziehen. 1-2 Schöpfkellen von der Hackfleischmasse in eine gefettete Auflaufform verteilen, mit Lasagneplatten bedecken und diese mit etwas Béchamelsauce bestreichen. Diesen Vorgang so oft wiederholen, bis alle Zutaten aufgebraucht sind und die Lasagne aus mehrerer Schichten besteht. Dabei mit der Hackfleischmasse abschließen und diese mit dem Käse bestreuen. Im vorgeheizten Ofen <button type='button' onclick=zähler2() id='counter2'> 40 Minuten</button> goldbraun backen. Herausnehmen und in Stücke portioniert auf Teller angerichtet servieren. Nach Belieben frischen, grünen Salat dazu reichen."
 		}
 	);
 
@@ -137,8 +137,7 @@ function zeigeRezept(){ //für 4 Personen
 	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
 	//Name des Rezeptes mit Navigation zu vorherigem Rezept und folgendem
-	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><br/><br/>";
-
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><p>- 4 Portionen -</p>";
 	//Verlinkung durch Button zu 1 Portion
 	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
 
@@ -198,7 +197,7 @@ function zeigePortion(){ //2Portionen
 
 	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
-	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><br/><br/>";
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><p>- 2 Portionen -</p>";
 
 	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
 
@@ -240,7 +239,7 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 
 	myString += "<h1 id='überschrift'>Rezepte</h1>";
 
-	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><br/><br/>";
+	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><p>- 1 Portion -</p>";
 
 //myString += "<select size='10'> <option onClick='zeigePortionSingle()' >1 Portion</option><option value='2Portionen' onClick='zeigePortion()' >2 Portionen</option> <option value='4Portionen' onClick='zeigeRezept()' >4 Portionen</option></select>";
 

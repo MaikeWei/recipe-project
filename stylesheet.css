@@ -36,6 +36,8 @@ body {
 /*Rezepte und Einkaufsliste*/
 .nav { /*Buttons am oberen Bildrand: Menü, Rezepte, Einkaufsliste*/
 	display: inline-flex;
+	marign: 0 auto;
+	text-align: center;
 	width: 32%;
 	padding: 1%;
 }
@@ -54,7 +56,7 @@ button { /*Portionen, da sonst alle anderen Buttons eine andere Größe zugewies
 
 table {
 	border: 1px solid black;
-	width: 90%;
+	width: 100%;
 }
 
 .spalte1 {
