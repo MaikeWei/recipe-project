@@ -364,14 +364,14 @@ function zeigeShoppinglist(){
 }
 
 
-function populateStorage (){
+function populateStorage (){ //speichert die Shoppinglist im localStorage, wird in JSON überschrieben
 	localStorage.setItem('shoppingInhalt', JSON.stringify(shoppinglist)); //shoppingInhalt = key
 	console.log("populate: " + JSON.stringify(shoppinglist));
 }
 
-function restoreContents (){
+function restoreContents (){ //gibt den localStorage in JavaScript aus
 	console.log("restore: " + localStorage.getItem('shoppingInhalt'));
-	shoppinglist = JSON.parse(localStorage.getItem('shoppingInhalt'));
+	shoppinglist = JSON.parse(localStorage.getItem('shoppingInhalt')); //parse übersetzt JSON zurück in JavaScript
 	//if (shoppinglist == undefined){alert("Deine Einkaufsliste ist leer!");} //Pop-Up-Fenster popt auf, wenn nichts in der Einkaufsliste ist
 }
 
@@ -388,29 +388,23 @@ function addToListe(eintrag) {
 	//}
 
 	shoppinglist.push(eintrag);
-	populateStorage();
-//	if (eintrag==true ;
+	populateStorage(); //speichert aktuellen Inhalt im localStorage
 }
 
-//leer den gespeicherten Inhalt in der Shoppingliste
+//leert den gespeicherten Inhalt in der Shoppingliste
 function allesLoeschen () {
-	shoppinglist = new Array();
-	populateStorage();
-  //  window.location.reload();
-  zeigeShoppinglist();
+	shoppinglist = new Array(); //neues Array überschreibt die alte gefüllte Shoppinglist durch eine neue leere
+	populateStorage(); 
+ 	zeigeShoppinglist(); //lädt die Seite Shoppinglist erneut
 	}
 
 
 function loeschen(index){
-	//restoreContents();
-
-shoppinglist.splice(index, 1);
+	shoppinglist.splice(index, 1); //entfernt aus der shoppinglist ein ausgewähltes Element, Element = index, ist in der Shoppinglist definiert
 	
 	console.log("loeschen");
-populateStorage();
-//	localStorage.removeItem('shoppingInhalt');
-//	window.location.reload();
-zeigeShoppinglist();
+	populateStorage();
+	zeigeShoppinglist();
 }
 
 
@@ -418,8 +412,8 @@ zeigeShoppinglist();
 
 
 //Timer
-Function.prototype.Timer = function (interval, calls, onend) {
-	var count = 0;
+Function.prototype.Timer = function (interval, calls, onend) { //beim Klicken auf den Timer-Button wird Timer gestartet
+	var count = 0; //beginnt bei 0 zu zählen
 	var payloadFunction = this;
 	var startTime = new Date();
 	var callbackFunction = function () {
@@ -442,35 +436,35 @@ Function.prototype.Timer = function (interval, calls, onend) {
 };
 
 function leadingzero(number) {
-	return (number < 10) ? '0' + number : number;
+	return (number < 10) ? '0' + number : number; //0 wird vor einstellige Zahl geschrieben, damit immer gleiche Anzahl an Zahlen da steht
 }
 
-var audio = new Audio ('timer_sound.mp3');
+var audio = new Audio ('timer_sound.mp3'); //setzt Ton des Timers fest
 
-function countdown(seconds, target) {
+function countdown(seconds, target) { 
 	var element = document.getElementById(target);
 	var calculateAndShow = function () {
-		if (seconds > 0) {
-			var h = Math.floor(seconds / 3600);
+		if (seconds > 0) { //Funktion rechnet selbstständig angegebene Sekunden aus der Zähler-function in Minuten und Stunden um
+			var h = Math.floor(seconds / 3600); 
 			var m = Math.floor((seconds % 3600) / 60);
 			var s = seconds % 60;
 			element.innerHTML = leadingzero(h) + ':' + leadingzero(m) + ':' +
-				leadingzero(s);
-			seconds--;
+				leadingzero(s); //gibt Zahlen in einem String aus
+			seconds--; //zählt runter
 		} else {
 			return false;
 		}
 	};
-	var completed = function () {
+	var completed = function () { //wenn Timer auf 0 abgelaufen, wird Ton gespielt und Pop-Up geöffnet
 		audio.play();
 		alert("Fertig!");
 	};
-	calculateAndShow.Timer(1000, Infinity, completed, audio);
+	calculateAndShow.Timer(1000, Infinity, completed); //Hauptfunktion, durchläuft. beendet. verbindet obere Funktion mit CalculateAndShow()
 };
 
 //einzelne Timerzahlen, die im Zubereitungstext sind
 function zähler (){
-	new countdown(1200, 'counter');
+	new countdown(1200, 'counter'); //alle Zeiten werden in Sekunden angegeben, rechnet selbst auf Minuten und Stunden um
 }
 
 function zähler1 (){
