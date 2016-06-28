@@ -28,7 +28,7 @@ function zeigeMenue () {
 
 	//zeigt zeigeMenue() beim Aufrufen auf dem Display an
 	document.getElementById('display').innerHTML = myString;
-};
+}
 
 
 //ZutatenListen
@@ -145,13 +145,15 @@ function zeigeRezept(){ //für 4 Personen
 
 	//Name des Rezeptes mit Navigation zu vorherigem Rezept und folgendem
 	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><p>- 4 Portionen -</p>";
+	
 	//Verlinkung durch Button zu 1 Portion
 	myString += "<button onClick='zeigePortionSingle()' >1 Portion</button>";
 
 	//Verlinkung durch Button zu 2 Portionen
 	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
 
-	//myString += "<label>Portionen:</label><select id='mySelect' onchange='myPortionen()'/><option value='--'> ------ </option><option value='single'>1 Portion</option><option value='two' >2 Portionen</option><option value='four'>4 Portionen</option></select>";
+	//Alternative um Portionen zu ändern als Dropdownbutton
+	//myString += "<label>Portionen:</label><select id='mySelect' onchange='myPortionen()'/><option value='--'> ------ </option><option value='zeigePortionSingle()'>1 Portion</option><option value='zeigePortion()' >2 Portionen</option><option value='zeigeRezept()'>4 Portionen</option></select>";
 
 	myString+= "<table>";
 
@@ -179,25 +181,29 @@ function zeigeRezept(){ //für 4 Personen
 	myString += "<tr><td id='spalte1'><b>Zubereitung <br/>" +' '+rezeptListe[cur].text_schwierigkeit+"</b></td></tr><tr><td id='spalte1'>"+rezeptListe[cur].text_txt+"</td></tr>";
 	myString += "</table><br/>";
 	
+	//Notizfeld zum selbst eintragen
 	myString += "<table>";
 	myString += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea rows='5' cols='100' name:'notizfeld'>Füge hier eine Notiz ein.</textarea></td></tr>";
 	myString += "<tr><td></td><td><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr>";
 	myString += "</table><br/>";
 	
-	var mytext = "<table>";
-	mytext += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td>" + notiz + "</td></tr>";
-	mytext += "</table><br/>";
+	//Feld, in dem Notiztext ausgegeben werden soll
+//	var mytext = "<table>";
+//	mytext += "<tr><td id='Begründung'><b>Notiz<br></td><td> <textarea name:'notizfeld'>Füge hier eine Notiz ein.</textarea><button type='button' onclick='notieren()' href='#'>Speichern </button><br/></td></tr><tr><td><td id='begründungHinzu'></td>" + notiz + "</td></tr>";
+//	mytext += "</table><br/>";
 
 	//document.getElementById(begründungHinzu).innerHTML = mytext;
 	
 	document.getElementById('display').innerHTML = myString;
 }	
 
-var notiz= new Array();
-	function notieren(){
+//Ansatz um Notiz abzuspeichern
+//	var notiz= new Array();
+//	localStorage
+//	function notieren(){
 
-	notiz.push(document.getElementById("notizfeld").value);
-}
+//	notiz.push(document.getElementById("notizfeld").value);
+//}
 
 function zeigePortion(){ //2Portionen
 	var rezeptListe = loadData();
@@ -259,6 +265,7 @@ function zeigePortionSingle(){ //Rezept für 1 Portion
 
 	myString += "<a onclick='zurueck()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_links.png'/></a><h2 class='vorzurück' id='rezeptTitel'>"+rezeptListe[cur].titel+"</h2><a onclick='vor()' href='#'><img class='vorzurück' id='pfeile' src='pfeil_rechts.png'/></a><p>- 1 Portion -</p>";
 
+//Ansatz für Dropdown-Button
 //myString += "<select size='10'> <option onClick='zeigePortionSingle()' >1 Portion</option><option value='2Portionen' onClick='zeigePortion()' >2 Portionen</option> <option value='4Portionen' onClick='zeigeRezept()' >4 Portionen</option></select>";
 
 	myString += "<button onClick='zeigePortion()' >2 Portionen</button>";
@@ -326,18 +333,27 @@ function zeigeFormular (){
 
 }
 
-function nZutat(){
+
+
+
+//mögliche Erweiterungen
+//function nZutat(){
 	//var myString = "<p>Zutaten : </p> <input type='text' name:'zutatfeld'> <p>Menge: </p> <input type='text' name:'mengefeld'><p>Einheit : </p> <input type='text' name:'einheitfeld'><button type='button' onClick='nZutat()' href='#'>hinzufügen</button>";
-	rezeptListe.rezeptBuch.titel.push(rezeptfeld.value);
-	document.getElementById('display').innerHTML = myString;
-}
+//	rezeptListe.rezeptBuch.titel.push(rezeptfeld.value);
+//	document.getElementById('display').innerHTML = myString;
+//}
 
 
-function myPortionen(Feld){
-		if (Feld == '1 Portion') {onchange='zeigePortionSingle()'};
-		if (Feld == '2 Portionen') {onchange='zeigePortion()'};
-		if (Feld == "4 Portionen") {onchange = "zeigeRezept()"};
-}
+//function myPortionen(Feld){
+//		if (Feld == '1 Portion') {onchange='zeigePortionSingle()'};
+//		if (Feld == '2 Portionen') {onchange='zeigePortion()'};
+//		if (Feld == "4 Portionen") {onchange = "zeigeRezept()"};
+//}
+
+//function myPortionen(){
+//		getElementById(mySelect);
+//		set value == onchange;
+//}
 
 
 
@@ -389,16 +405,6 @@ function restoreContents (){ //gibt den localStorage in JavaScript aus
 
 //nimmt die Einträge von name, menge und einheit und pusht sie in die Shoppingliste
 function addToListe(eintrag) {
-	//var shoppinglist = JSON.parse(window.localStorage.getItem('shoppinglist')); //liest vom localStorage
-
-	//var currentEntry; //wird mit entryNumber gleichgesetzt
-
-	//erzeugt für jede Zutat eine eigene hochzählende Nummer in der Shoppinglist, solange wie shoppinglist ist
-	//for(var entryNumber = 0; shoppinglist.length; entryNumber++) {
-		//currentEntry = shoppinglist[entryNumber];
-
-	//}
-
 	shoppinglist.push(eintrag);
 	populateStorage(); //speichert aktuellen Inhalt im localStorage
 }
