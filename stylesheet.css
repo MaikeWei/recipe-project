@@ -1,0 +1,99 @@
+
+body {
+	float: center;
+	background-color: #DCDFF2;
+	/*background-color: #F5F7D7;*/
+	/*background-color: #BFD3E3;*/
+	/*background-color: #F0CABD;*/
+	/*background-color: #BED6A5;*/
+}
+
+/*Startseite*/
+#start { /*Bild*/
+	width: 100%;
+
+}
+
+#überschrift { /*Name der Seite*/
+	font-weight: bold;
+	font-variant: small-caps; /*alle Buchstaben werden großgeschrieben, "echte" Großbuchstaben werden noch größer hervorgehoben*/
+  	color: #000000;
+}
+
+
+/*3 Navigationsbuttons auf der Startseite*/
+.startseite {
+	width: 300px;
+	height: 50px;
+	margin: auto 0;
+}
+
+
+
+
+
+
+/*Rezepte, Einkaufsliste und Formular*/
+.nav { /*Buttons am oberen Bildrand: Menü, Rezepte, Einkaufsliste, Formular*/
+	display: inline-flex;
+	margin: 0 auto;
+	text-align: center;
+	width: 24%;
+	padding: 1%;
+}
+
+#top {
+	background-color: #3950E6;
+	height: 10%;
+	text-align: center;
+	padding: 0.4%;
+}
+
+
+button { /*Portionen, da sonst alle anderen Buttons eine andere Größe zugewiesen bekommen haben*/
+	width: 80px;
+}
+
+table {
+	border: 1px solid black;
+	width: 100%;
+}
+
+.spalte1 {
+	width: 40%;
+}
+
+.spalte2 {
+	width: 30%;
+}
+
+.spalte3 {
+	width: 30%;
+}
+
+/*Plus-Button*/
+.plus {
+	width: 30px;
+}
+
+/*Pfeile links, rechts und Rezepttitel*/
+.vorzurück {
+	display: inline-flex;
+	text-align: center;
+}
+
+
+#rezeptTitel {
+	width: 300px;
+	font-variant: small-caps;
+}
+
+/*Pfeile rechts, links*/
+#pfeile {
+	width: 30px;
+	height: 30px;
+}
+
+#rezepte_bild {
+	width: 100%;
+}
